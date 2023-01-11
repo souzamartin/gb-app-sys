@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div id='main'>
-      <Login />
+      <Login setUser={setUser} />
     </div>
   )
 }

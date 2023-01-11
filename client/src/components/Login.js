@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 import {Segment, Header, Form, Button, Icon} from 'semantic-ui-react'
 
-const Login = () => {
+const Login = ({setUser}) => {
     const [login, setLogin] = useState({
         email: '',
         password: ''
@@ -17,7 +17,19 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log('OINK')
+        
+        fetch('/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(login)
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json().then(setUser)
+            } else {
+                console.error('OINK')
+            }
+        })
     }
 
     return (
