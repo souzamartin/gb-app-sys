@@ -1,13 +1,14 @@
 import {useState} from 'react'
-import {Container} from 'semantic-ui-react'
+
+import Login from './components/Login'
 
 function App() {
   const [user, setUser] = useState(null)
 
   return (
-    <Container textAlign='center'>
-      <h1>Who you gonna call?</h1>
-    </Container>
+    <div id='main'>
+      <Login />
+    </div>
   )
 }
 
