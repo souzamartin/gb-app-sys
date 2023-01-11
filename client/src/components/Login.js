@@ -1,8 +1,11 @@
 import {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 import {Segment, Header, Form, Button, Icon} from 'semantic-ui-react'
 
 const Login = ({setUser}) => {
+    const history = useHistory()
+
     const [login, setLogin] = useState({
         email: '',
         password: ''
@@ -26,6 +29,7 @@ const Login = ({setUser}) => {
         .then(r => {
             if (r.ok) {
                 r.json().then(setUser)
+                history.push('/')
             } else {
                 console.error('OINK')
             }
