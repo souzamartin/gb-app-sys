@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import Login from './Login'
 import UserForm from './UserForm'
 
-import {Header, Segment, Button, Icon} from 'semantic-ui-react'
+import {Header, Segment, Button, Icon, List, Divider} from 'semantic-ui-react'
 
 const Account = ({user, setUser}) => {
     const history = useHistory()
@@ -24,6 +24,10 @@ const Account = ({user, setUser}) => {
         })
     }
 
+    const handleEdit = () => {
+        console.log('OINK')
+    }
+
     const handleDelete = () => {
         if (window.confirm("Are you sure you want to delete your account?")) {
           fetch(`/users/${user.id}`, {method: "DELETE"})
@@ -42,8 +46,44 @@ const Account = ({user, setUser}) => {
                 <>
                     <Header size='medium'>Account Details</Header>
                     <Segment>
-                        <p>User details go here</p>
+                        <List size='large'>
+                            <List.Item>
+                                <Icon name='user' />
+                                <List.Content>
+                                    <List.Header>Name</List.Header>
+                                    {`${user.firstname} ${user.lastname}`}
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <Icon name='mail' />
+                                <List.Content>
+                                    <List.Header>Email Address</List.Header>
+                                    {user.email}
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <Icon name='phone' />
+                                <List.Content>
+                                    <List.Header>Telephone</List.Header>
+                                    {user.phone}
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <Icon name='home' />
+                                <List.Content>
+                                    <List.Header>Address</List.Header>
+                                    {user.address}
+                                </List.Content>
+                            </List.Item>
+                        </List>
                     </Segment>
+                    <Button animated onClick={handleEdit}>
+                        <Button.Content visible>Edit Account</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='edit' />
+                        </Button.Content>
+                    </Button>
+                    <Divider />
                     <Button negative animated onClick={handleDelete}>
                         <Button.Content visible>Delete Account</Button.Content>
                         <Button.Content hidden>
@@ -51,7 +91,7 @@ const Account = ({user, setUser}) => {
                         </Button.Content>
                     </Button>
                 </>
-                :
+            :
                 <>
                     <Header size='medium'>Please log in or create an account</Header>
                     <Login setUser={setUser} />

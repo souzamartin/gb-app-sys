@@ -18,7 +18,7 @@ const Nav = ({user, setUser}) => {
         <div id='navmenu'>
             <Menu borderless>
                 <Menu.Item
-                    as={Link} to='/signin' 
+                    as={Link} to='/account' 
                     name='Account'    
                 />
                     <Menu.Item>

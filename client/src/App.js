@@ -20,7 +20,7 @@ function App() {
     <div id='main'>
       <Nav setUser={setUser} />
       <Switch>
-        <Route path='/signin'>
+        <Route path='/account'>
           <Account user={user} setUser={setUser} />
         </Route>
         <Route exact path='/'>
