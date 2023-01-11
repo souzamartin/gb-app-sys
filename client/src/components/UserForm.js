@@ -2,7 +2,7 @@ import {useState} from "react"
 
 import {Segment, Form, Button, Icon} from "semantic-ui-react"
 
-const UserForm = () => {
+const UserForm = ({onSubmit}) => {
     const initialFormState = {
         firstname: '',
         lastname: '',
@@ -24,8 +24,7 @@ const UserForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        console.log('OINK')
+        onSubmit(formData)
     }
 
     return (
@@ -68,7 +67,7 @@ const UserForm = () => {
                     <label>Confirm Password</label>
                     <input
                         type='password'
-                        name='firstname'
+                        name='password_confirmation'
                         value={formData.password_confirmation}
                         onChange={handleInput}
                     />

@@ -31,7 +31,7 @@ const Login = ({setUser}) => {
                 r.json().then(setUser)
                 history.push('/')
             } else {
-                console.error('OINK')
+                r.json().then(console.error)
             }
         })
     }
