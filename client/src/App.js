@@ -9,10 +9,10 @@ function App() {
 
   return (
     <div id='main'>
-      <Nav />
+      <Nav setUser={setUser} />
       <Switch>
         <Route path='/signin'>
-          <Login setUser={setUser} />
+          <Login user={user} setUser={setUser} />
         </Route>
         <Route exact path='/'>
           <h2>Welcome{user ? `, ${user.firstname} ${user.lastname}` : null}</h2>

@@ -52,6 +52,7 @@ const Login = ({setUser}) => {
                 <Form.Field>
                     <label>Password</label>
                     <input
+                        type='password'
                         name='password'
                         value={login.password}
                         placeholder='Enter password'
