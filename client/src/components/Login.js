@@ -38,7 +38,6 @@ const Login = ({setUser}) => {
 
     return (
         <Segment>
-            <Header size='medium'>Please log in</Header>
             <Form id='login-form' onSubmit={handleLogin}>
                 <Form.Field>
                     <label>Email Address</label>
@@ -47,7 +46,7 @@ const Login = ({setUser}) => {
                         value={login.email}
                         placeholder='Enter email address'
                         onChange={handleInput}
-                    />
+                        />
                 </Form.Field>
                 <Form.Field>
                     <label>Password</label>
@@ -57,7 +56,7 @@ const Login = ({setUser}) => {
                         value={login.password}
                         placeholder='Enter password'
                         onChange={handleInput}    
-                    />
+                        />
                 </Form.Field>
                 <Button primary animated type='submit'>
                     <Button.Content visible>Log In</Button.Content>

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
 
-import Login from './components/Login'
+import Account from './components/Account'
 import Nav from './components/Nav'
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Nav setUser={setUser} />
       <Switch>
         <Route path='/signin'>
-          <Login user={user} setUser={setUser} />
+          <Account user={user} setUser={setUser} />
         </Route>
         <Route exact path='/'>
           <h2>Welcome{user ? `, ${user.firstname} ${user.lastname}` : null}</h2>
