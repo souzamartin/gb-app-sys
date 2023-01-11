@@ -1,6 +1,19 @@
+import {useState} from 'react'
+
 import {Segment, Header, Form, Button, Icon} from 'semantic-ui-react'
 
 const Login = () => {
+    const [login, setLogin] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleInput = (e) => {
+        setLogin({
+          ...login,
+          [e.target.name]: e.target.value
+        })
+    }
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -11,13 +24,23 @@ const Login = () => {
         <Segment raised>
             <Header size='medium'>Please log in</Header>
             <Form id='login-form' onSubmit={handleLogin}>
-                <Form.Field name='email'>
+                <Form.Field>
                     <label>Email Address</label>
-                    <input placeholder='Enter email address' />
+                    <input
+                        name='email'
+                        value={login.email}
+                        placeholder='Enter email address'
+                        onChange={handleInput}
+                    />
                 </Form.Field>
-                <Form.Field name='password'>
+                <Form.Field>
                     <label>Password</label>
-                    <input placeholder='Enter password' />
+                    <input
+                        name='password'
+                        value={login.password}
+                        placeholder='Enter password'
+                        onChange={handleInput}    
+                    />
                 </Form.Field>
                 <Button primary animated type='submit'>
                     <Button.Content visible>Log In</Button.Content>
