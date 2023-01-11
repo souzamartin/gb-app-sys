@@ -1,6 +1,6 @@
-/* button {
-  width: 150px;
-} */
+button {
+  width: fit-content;
+}
 
 #main {
   display: flex;
@@ -10,7 +10,8 @@
   margin-top: 30px;
 }
 
-#login-form {
+#login-form,
+#user-form {
   display: flex;
   flex-direction: column;
   /* width: 50%; */
