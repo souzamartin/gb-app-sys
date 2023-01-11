@@ -37,7 +37,7 @@ const Login = ({setUser}) => {
     }
 
     return (
-        <Segment raised>
+        <Segment>
             <Header size='medium'>Please log in</Header>
             <Form id='login-form' onSubmit={handleLogin}>
                 <Form.Field>
@@ -61,7 +61,7 @@ const Login = ({setUser}) => {
                 <Button primary animated type='submit'>
                     <Button.Content visible>Log In</Button.Content>
                     <Button.Content hidden>
-                        <Icon name='long arrow alternate right' />
+                        <Icon name='sign-in' />
                     </Button.Content>
                 </Button>
             </Form>
