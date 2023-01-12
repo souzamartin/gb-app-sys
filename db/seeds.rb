@@ -2,6 +2,8 @@ puts "Deleting previous records"
 
 User.destroy_all
 Entity.destroy_all
+Job.destroy_all
+JobEntity.destroy_all
 
 puts "Complete\n "
 
@@ -42,21 +44,21 @@ puts "Creating paranormal entities..."
 slimer = Entity.create(
     name: "Slimer",
     classification: "Class 5 full roaming vapor",
-    description: "Ugly little spud",
+    description: "Ugly little spud.",
     notes: "Focused, non-terminal, repeating phantasm",
     image: "https://static.wikia.nocookie.net/ghostbusters/images/8/80/SlimergbBR002.png"
 )
 
 zuul = Entity.create(
     name: "Zuul",
-    description: "Terror dog",
+    description: "Terror dog.",
     notes: "Gatekeeper of Gozer",
     image: "https://static.wikia.nocookie.net/monster/images/9/99/Terror_dog_zuul.jpg"
 )
 
 vinz = Entity.create(
     name: "Vinz Clortho",
-    description: "Terror dog",
+    description: "Terror dog.",
     notes: "Keymaster of Gozer",
     image: "https://static.wikia.nocookie.net/ghostbusters/images/9/92/GB1film1999chapter26sc033.png"
 )
@@ -64,9 +66,16 @@ vinz = Entity.create(
 eleanor = Entity.create(
     name: "Library Ghost",
     classification: "Class 4",
-    description: "Ghostly librarian, shushes patrons rudely",
+    description: "Ghostly librarian, shushes patrons rudely.",
     notes: "Free-roaming, vaporous, full-torso apparition",
     image: "https://s26162.pcdn.co/wp-content/uploads/2018/10/loc_ca_library_movie05.jpg"
+)
+
+cabby = Entity.create(
+    name: "Zombie Taxi Driver",
+    classification: "Class 3 anonymous haunting",
+    description: "Scariest cab ride I've ever taken, but I did get downtown on time.",
+    image: "https://static.wikia.nocookie.net/ghostbusters/images/b/b4/Taxidriverghost.png"
 )
 
 puts "Complete\n "

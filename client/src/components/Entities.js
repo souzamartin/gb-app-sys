@@ -22,7 +22,7 @@ const Entities = () => {
 
             <Divider />
             
-            <Card.Group centered itemsPerRow={2}>
+            <Card.Group itemsPerRow={2}>
                 {renderedEntities}
             </Card.Group>
         </Segment>

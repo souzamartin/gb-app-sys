@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
 
 import Nav from './components/Nav'
+import Home from './components/Home'
 import Account from './components/Account'
 import Entities from './components/Entities'
 import Services from './components/Services'
@@ -35,7 +36,7 @@ function App() {
         </Route>
 
         <Route exact path='/'>
-          <h2>Welcome{user ? `, ${user.firstname} ${user.lastname}` : null}</h2>
+          <Home user={user} />
         </Route>
       </Switch>
     </div>
