@@ -23,3 +23,10 @@ button {
   flex-direction: column;
   /* width: 50%; */
 }
+
+.ghost-pic {
+  object-fit: cover;
+  width: 100%;
+  min-height: 200px;
+  max-height: 200px;
+}

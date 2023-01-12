@@ -43,7 +43,7 @@ slimer = Entity.create(
     name: "Slimer",
     classification: "Class 5 full roaming vapor",
     description: "Ugly little spud",
-    notes: "Focused, non-terminal repeating phantasm",
+    notes: "Focused, non-terminal, repeating phantasm",
     image: "https://static.wikia.nocookie.net/ghostbusters/images/8/80/SlimergbBR002.png"
 )
 

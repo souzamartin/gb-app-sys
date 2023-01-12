@@ -3,10 +3,10 @@ import {Card, Image, Header, Button, Icon} from "semantic-ui-react"
 const EntityCard = ({entity}) => {
     return (
         <Card>
-            <Image size='medium' src={entity.image} alt={entity.name} centered wrapped/>
+            <Image className='ghost-pic' src={entity.image} alt={entity.name} />
             <Card.Content>
                 <Header>{entity.name.toUpperCase()}</Header>
-
+                
                 <Header sub>Classification</Header>
                 <span>{entity.classification}</span>
                 
@@ -17,7 +17,7 @@ const EntityCard = ({entity}) => {
                 <p>{entity.notes}</p>
             </Card.Content>
             <Card.Content extra>
-            <Button color="red" animated>
+            <Button color='red' animated>
                     <Button.Content visible>Schedule Job</Button.Content>
                     <Button.Content hidden>
                         <Icon name='ban' />
