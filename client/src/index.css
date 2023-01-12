@@ -17,6 +17,10 @@ button {
   z-index: 1;
 }
 
+.to-right {
+  margin-left: auto;
+}
+
 #login-form,
 #user-form {
   display: flex;

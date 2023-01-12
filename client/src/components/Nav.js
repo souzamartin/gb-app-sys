@@ -24,7 +24,7 @@ const Nav = ({user, setUser}) => {
                     name='Services'
                 />
 
-                <Menu.Item>
+                <Menu.Item className='to-right'>
                    <Logout user={user} setUser={setUser} />
                 </Menu.Item>
             </Menu>

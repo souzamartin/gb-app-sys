@@ -16,7 +16,7 @@ const EntityCard = ({entity}) => {
                 <Header sub>Notes</Header>
                 <p>{entity.notes}</p>
             </Card.Content>
-            <Card.Content extra>
+            <Card.Content extra textAlign="center">
             <Button color='red' animated>
                     <Button.Content visible>Schedule Job</Button.Content>
                     <Button.Content hidden>
