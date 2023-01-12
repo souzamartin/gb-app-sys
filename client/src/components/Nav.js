@@ -1,23 +1,14 @@
-import {useHistory, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
-import {Menu, Button, Icon} from 'semantic-ui-react'
+import Logout from './Logout'
+
+import {Menu} from 'semantic-ui-react'
 
 const Nav = ({user, setUser}) => {
-    const history = useHistory()
-
-    const handleLogout = () => {
-        fetch('/logout', {method: 'DELETE'})
-        .then(r => {
-            if (r.ok) {
-                setUser(null)
-                history.push('/')
-            }
-        })
-    }
 
     return (
         <div id='navmenu'>
-            <Menu tabular>
+            <Menu borderless>
                 <Menu.Item
                     as={NavLink} to='/account' 
                     name='Account'
@@ -34,14 +25,7 @@ const Nav = ({user, setUser}) => {
                 />
 
                 <Menu.Item>
-                    <Button animated onClick={handleLogout}>
-                        <Button.Content visible >
-                            <Icon name='log out' />
-                        </Button.Content>
-                        <Button.Content hidden>
-                            Log Out
-                        </Button.Content>
-                    </Button>
+                   <Logout user={user} setUser={setUser} />
                 </Menu.Item>
             </Menu>
         </div>
