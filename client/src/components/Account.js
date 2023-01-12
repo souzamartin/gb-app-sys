@@ -27,8 +27,20 @@ const Account = ({user, setUser}) => {
         })
     }
 
-    const handleEdit = () => {
-        console.log('OINK')
+    const handleEdit = (formData) => {
+        fetch(`/users/${user.id}`, {
+            method: 'PATCH', 
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json().then(setUser)
+                setOpen(false)
+            } else {
+                r.json().then(console.error)
+            }
+        })
     }
 
     const handleDelete = () => {
