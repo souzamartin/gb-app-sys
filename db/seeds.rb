@@ -3,7 +3,7 @@ puts "Deleting previous records"
 User.destroy_all
 Entity.destroy_all
 
-puts "Complete"
+puts "Complete\n "
 
 puts "Creating users..."
 
@@ -35,7 +35,7 @@ mike = User.create(
     address: "417 5th Avenue, New York, NY 10016",
 )
 
-puts "Complete"
+puts "Complete\n "
 
 puts "Creating paranormal entities..."
 
@@ -65,10 +65,11 @@ eleanor = Entity.create(
     name: "Library Ghost",
     classification: "Class 4",
     description: "Ghostly librarian, shushes patrons rudely",
-    notes: "Free-roaming, vaporous, full-torso apparition"
+    notes: "Free-roaming, vaporous, full-torso apparition",
+    image: "https://s26162.pcdn.co/wp-content/uploads/2018/10/loc_ca_library_movie05.jpg"
 )
 
-puts "Complete"
+puts "Complete\n "
 
 puts "Creating jobs..."
 
@@ -92,6 +93,6 @@ j2 = Job.create(
 )
 JobEntity.create(job_id: j2.id, entity_id: slimer.id)
 
-puts "Complete"
+puts "Complete\n "
 
 puts "Seeding complete"
