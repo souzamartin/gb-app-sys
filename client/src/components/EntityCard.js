@@ -17,7 +17,7 @@ const EntityCard = ({entity}) => {
                 <p>{entity.notes}</p>
             </Card.Content>
             <Card.Content extra textAlign="center">
-            <Button color='red' animated>
+                <Button color='red' animated>
                     <Button.Content visible>Schedule Job</Button.Content>
                     <Button.Content hidden>
                         <Icon name='ban' />
