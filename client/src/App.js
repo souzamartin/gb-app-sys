@@ -28,7 +28,7 @@ function App() {
         </Route>
 
         <Route path='/entities'>
-          <Entities />
+          <Entities user={user} />
         </Route>
         
         <Route path='/services'>

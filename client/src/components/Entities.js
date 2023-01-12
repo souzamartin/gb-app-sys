@@ -5,7 +5,7 @@ import EntityCard from "./EntityCard"
 
 import {Segment, Header, Divider, Card} from "semantic-ui-react"
 
-const Entities = () => {
+const Entities = ({user}) => {
     const [entities, setEntities] = useState([])
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Entities = () => {
             <p>Search our catalog of spooks, specters, and ghosts. 
                 If there's something strange in your neighborhood,
                 but it isn't listed below, please report it to us.</p>
-            <ReportEntity />
+            <ReportEntity user={user} />
 
             <Divider />
             

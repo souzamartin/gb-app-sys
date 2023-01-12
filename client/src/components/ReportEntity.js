@@ -1,10 +1,14 @@
 import {Container, Button, Icon} from "semantic-ui-react"
 
-const handleReport = () => {
-    console.log("OINK")
-}
+const ReportEntity = ({user}) => {
+    const handleReport = () => {
+        if (user) {
+            console.log("OINK")
+        } else {
+            window.alert("Please log in or create an account.")
+        }
+    }
 
-const ReportEntity = () => {
     return (
         <Container textAlign="center">
             <Button color='purple' animated onClick={handleReport}>
