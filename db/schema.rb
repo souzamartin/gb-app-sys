@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_145555) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_155254) do
+  create_table "entities", force: :cascade do |t|
+    t.string "name"
+    t.string "classification", default: "Unknown"
+    t.string "description"
+    t.text "notes"
+    t.string "image"
+    t.boolean "busted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "password_digest"
     t.string "firstname"
@@ -18,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_145555) do
     t.string "email"
     t.integer "phone"
     t.string "address"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

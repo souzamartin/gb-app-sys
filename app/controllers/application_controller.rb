@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
     end
 
     def render_not_found(exception)
-        render json: {errors: {exception.model: "Not found"}}, status: :not_found
+        render json: {errors: {exception.model => "Not found"}}, status: :not_found
     end
 
     def render_unprocessable(exception)

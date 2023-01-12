@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :entities, only: [:index, :create]
   resources :users, only: [:create, :update, :destroy]
  
   post '/login', to: 'sessions#create'
