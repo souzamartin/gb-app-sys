@@ -70,6 +70,7 @@ const Account = ({user, setUser}) => {
                                     {`${user.firstname} ${user.lastname}`}
                                 </List.Content>
                             </List.Item>
+
                             <List.Item>
                                 <Icon name='mail' />
                                 <List.Content>
@@ -77,6 +78,7 @@ const Account = ({user, setUser}) => {
                                     {user.email}
                                 </List.Content>
                             </List.Item>
+
                             <List.Item>
                                 <Icon name='phone' />
                                 <List.Content>
@@ -84,6 +86,7 @@ const Account = ({user, setUser}) => {
                                     {user.phone}
                                 </List.Content>
                             </List.Item>
+                            
                             <List.Item>
                                 <Icon name='home' />
                                 <List.Content>
@@ -112,14 +115,6 @@ const Account = ({user, setUser}) => {
                         <Modal.Content>
                             <UserForm user={user} onSubmit={handleEdit} />
                         </Modal.Content>
-                        {/* <Modal.Actions>
-                            <Button positive animated onClick={handleEdit}>
-                                <Button.Content visible>Update Account</Button.Content>
-                                <Button.Content hidden>
-                                    <Icon name='edit' />
-                                </Button.Content>
-                            </Button>
-                        </Modal.Actions> */}
                     </Modal>
 
                     <Divider />

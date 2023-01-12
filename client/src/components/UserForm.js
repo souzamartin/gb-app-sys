@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 
-import {Segment, Form, Button, Icon} from "semantic-ui-react"
+import {Segment, Form, Button, Icon, Container} from "semantic-ui-react"
 
 const UserForm = ({onSubmit, user}) => {
     const initialFormState = {
@@ -42,6 +42,7 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Last Name</label>
                     <input
@@ -50,6 +51,7 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Email Address</label>
                     <input
@@ -58,6 +60,7 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Password</label>
                     <input
@@ -67,6 +70,7 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Confirm Password</label>
                     <input
@@ -76,6 +80,7 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Phone Number (Optional)</label>
                     <input
@@ -85,6 +90,7 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Address (Optional)</label>
                     <input
@@ -93,12 +99,15 @@ const UserForm = ({onSubmit, user}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
-                <Button positive animated type='submit'>
-                    <Button.Content visible>Submit</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name='signup' />
-                    </Button.Content>
-                </Button>
+                
+                <div align="center">
+                    <Button positive animated type='submit'>
+                        <Button.Content visible>Submit</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='signup' />
+                        </Button.Content>
+                    </Button>
+                </div>
             </Form>
         </Segment>
     )
