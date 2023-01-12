@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_155254) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_162534) do
   create_table "entities", force: :cascade do |t|
     t.string "name"
     t.string "classification", default: "Unknown"
@@ -20,6 +20,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_155254) do
     t.boolean "busted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "job_entities", force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "entity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_id"], name: "index_job_entities_on_entity_id"
+    t.index ["job_id"], name: "index_job_entities_on_job_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "location"
+    t.string "notes"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_155254) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "job_entities", "entities"
+  add_foreign_key "job_entities", "jobs"
+  add_foreign_key "jobs", "users"
 end

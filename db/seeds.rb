@@ -55,4 +55,22 @@ vinz = Entity.create(
 
 puts "Complete"
 
+puts "Creating jobs..."
+
+j1 = Job.create(
+    location: "55 Central Park West",
+    notes: "Saw something in the fridge",
+    user_id: dana.id
+)
+JobEntity.create(job_id: j1.id, entity_id: zuul.id)
+
+j2 = Job.create(
+    location: "Sedgewick Hotel",
+    notes: "12th floor",
+    user_id: mike.id
+)
+JobEntity.create(job_id: j2.id, entity_id: slimer.id)
+
+puts "Complete"
+
 puts "Seeding complete"
