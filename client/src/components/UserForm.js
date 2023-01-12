@@ -1,19 +1,23 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 import {Segment, Form, Button, Icon} from "semantic-ui-react"
 
-const UserForm = ({onSubmit}) => {
+const UserForm = ({onSubmit, user}) => {
     const initialFormState = {
         firstname: '',
         lastname: '',
         email: '',
         password: '',
         password_confirmation: '',
-        phone: null,
+        phone: undefined,
         address: ''
       }
       
     const [formData, setFormData] = useState(initialFormState)
+
+    useEffect(() => {
+        if (user) {setFormData(user)}
+    }, [])
 
     const handleInput = (e) => {
         setFormData({
@@ -89,8 +93,8 @@ const UserForm = ({onSubmit}) => {
                         onChange={handleInput}
                     />
                 </Form.Field>
-                <Button primary animated type='submit'>
-                    <Button.Content visible>Create Account</Button.Content>
+                <Button positive animated type='submit'>
+                    <Button.Content visible>Submit</Button.Content>
                     <Button.Content hidden>
                         <Icon name='signup' />
                     </Button.Content>

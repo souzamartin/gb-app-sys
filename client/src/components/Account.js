@@ -1,12 +1,15 @@
+import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
 import Login from './Login'
 import UserForm from './UserForm'
 
-import {Header, Segment, Button, Icon, List, Divider} from 'semantic-ui-react'
+import {Header, Segment, Button, Icon, List, Divider, Modal, ModalActions} from 'semantic-ui-react'
 
 const Account = ({user, setUser}) => {
     const history = useHistory()
+
+    const [open, setOpen] = useState(false)
 
     const onSignup = (formData) => {
         fetch('/users', {
@@ -45,6 +48,7 @@ const Account = ({user, setUser}) => {
             {user ?
                 <>
                     <Header size='medium'>Account Details</Header>
+
                     <Segment>
                         <List size='large'>
                             <List.Item>
@@ -77,13 +81,37 @@ const Account = ({user, setUser}) => {
                             </List.Item>
                         </List>
                     </Segment>
-                    <Button animated onClick={handleEdit}>
-                        <Button.Content visible>Edit Account</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name='edit' />
-                        </Button.Content>
-                    </Button>
+
+                    <Modal
+                        closeIcon
+                        open={open}
+                        trigger={
+                            <Button animated onClick={() => setOpen(true)}>
+                                <Button.Content visible>Edit Account</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='edit' />
+                                </Button.Content>
+                            </Button>
+                        }
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                    >
+                        <Header content='Edit Account Information' />
+                        <Modal.Content>
+                            <UserForm user={user} onSubmit={handleEdit} />
+                        </Modal.Content>
+                        {/* <Modal.Actions>
+                            <Button positive animated onClick={handleEdit}>
+                                <Button.Content visible>Update Account</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='edit' />
+                                </Button.Content>
+                            </Button>
+                        </Modal.Actions> */}
+                    </Modal>
+
                     <Divider />
+
                     <Button negative animated onClick={handleDelete}>
                         <Button.Content visible>Delete Account</Button.Content>
                         <Button.Content hidden>

@@ -9,7 +9,7 @@ puts "Creating users..."
 User.create(
     firstname: "Dana",
     lastname: "Barrett",
-    email: "dbarrett@aol.com",
+    email: "dbarrett@fakeaol.com",
     password: "orchestra",
     phone: 2125555500,
     address: "55 Central Park West",
@@ -19,7 +19,7 @@ User.create(
 User.create(
     firstname: "Michael",
     lastname: "Ensign",
-    email: "manager@sedgewickhotel.com",
+    email: "manager@sedgewick-hotel.com",
     password: "ballroom",
     phone: 2125559876,
     address: "417 5th Avenue, New York, NY 10016",
