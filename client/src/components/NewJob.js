@@ -1,12 +1,12 @@
 import {useState} from "react"
 import {useHistory} from "react-router-dom"
 
-import {Segment, Header, Form, TextArea, Button, Icon, Label, Image, Message, Modal} from "semantic-ui-react"
+import SelectEntity from "./SelectEntity"
+
+import {Segment, Header, Form, TextArea, Button, Icon, Label, Image, Message, Modal, Dropdown, Divider} from "semantic-ui-react"
 
 const NewJob = () => {
     const history = useHistory()
-
-    const [open, setOpen] = useState(false)
 
     const [formData, setFormData] = useState({
         location: "",
@@ -71,37 +71,7 @@ const NewJob = () => {
                     <Form.Field>
                         <label>Associated Entities</label>
 
-                        <Modal
-                            closeIcon
-                            open={open}
-                            trigger={
-                                <Button animated onClick={() => setOpen(true)}>
-                                    <Button.Content visible>Add Entity</Button.Content>
-                                    <Button.Content hidden>
-                                        <Icon name='add' />
-                                    </Button.Content>
-                                </Button>
-                            }
-                            onClose={() => setOpen(false)}
-                            onOpen={() => setOpen(true)}
-                        >
-                            <Header content='Specify Paranormal Entity' />
-                            <Modal.Content>
-                                    <Segment>
-                                        
-                                
-                                        <div align="center">
-                                            <Button positive animated type='submit'>
-                                                <Button.Content visible>Submit</Button.Content>
-                                                <Button.Content hidden>
-                                                    <Icon name='arrow circle right' />
-                                                </Button.Content>
-                                            </Button>
-                                        </div>
-                                        
-                                    </Segment>
-                            </Modal.Content>
-                        </Modal>
+                        <SelectEntity />
 
                         {associatedEntities.length > 0 ?
                             <Segment>
