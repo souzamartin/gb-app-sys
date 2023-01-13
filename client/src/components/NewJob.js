@@ -15,6 +15,10 @@ const NewJob = ({entities}) => {
 
     const [associatedEntities, setAssociatedEntities] = useState([])
 
+    const onSelectEntity = (selectedEntity) => {
+        setAssociatedEntities([...associatedEntities, selectedEntity])
+    }
+
     const handleInput = (e) => {
         setFormData({
           ...formData,
@@ -49,7 +53,7 @@ const NewJob = ({entities}) => {
             <Segment>
                 <Header size='tiny'>Associated Entities</Header>
 
-                <SelectEntity entities={entities} />
+                <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
 
                 {associatedEntities.length > 0 ?
                     <Segment>

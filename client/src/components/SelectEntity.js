@@ -2,19 +2,23 @@ import {useState} from "react"
 
 import {Modal, Button, Icon, Header, Segment, Dropdown, Divider, Message} from "semantic-ui-react"
 
-const SelectEntity = ({entities}) => {
+const SelectEntity = ({entities, onSelectEntity}) => {
     const [open, setOpen] = useState(false)
 
-    const options = entities.map(entity => Object({
-        key: entity.name,
-        text: entity.name,
-        value: entity.name,
-        image: {avatar: true, src: entity.image}
+    const [selected, setSelected] = useState(null)
+
+    const options = entities.map(entity =>
+        Object({
+            key: entity.name,
+            text: entity.name,
+            value: entity.name,
+            image: {avatar: true, src: entity.image}
         })
     )
 
     const handleAddEntity = () => {
-        console.log('OINK')
+        onSelectEntity(selected)
+        setSelected(null)
         setOpen(false)
     }
 
@@ -36,7 +40,14 @@ const SelectEntity = ({entities}) => {
             <Header content='Specify Paranormal Entity' />
             <Modal.Content>
                     <Segment>
-                        <Dropdown fluid clearable selection options={options} />
+                        <Dropdown
+                            fluid
+                            clearable
+                            search
+                            selection
+                            options={options}
+                            onChange={(e, data) => setSelected(data.value)}
+                        />
                         <Message warning>If you don't see your spook in this list, please report it to us!</Message>
                         <Divider />
                         <div align="center">
