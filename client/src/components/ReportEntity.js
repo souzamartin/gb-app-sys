@@ -7,7 +7,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
 
     const [formData, setFormData] = useState({
         name: "",
-        classification: "",
+        classification: undefined,
         description: "",
         notes: "",
         image: ""

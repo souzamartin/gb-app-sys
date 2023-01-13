@@ -5,14 +5,7 @@ import EntityCard from "./EntityCard"
 
 import {Segment, Header, Divider, Card} from "semantic-ui-react"
 
-const Entities = ({user}) => {
-    const [entities, setEntities] = useState([])
-
-    useEffect(() => {
-        fetch('/entities')
-        .then(r => r.json())
-        .then(setEntities)
-    }, [])
+const Entities = ({user, entities, setEntities}) => {
 
     const renderedEntities = entities.map(entity => <EntityCard key={entity.id} entity={entity} />)
 

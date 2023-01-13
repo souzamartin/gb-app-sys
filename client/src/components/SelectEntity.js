@@ -1,9 +1,17 @@
 import {useState} from "react"
 
-import {Modal, Button, Icon, Header, Segment, Dropdown, Divider} from "semantic-ui-react"
+import {Modal, Button, Icon, Header, Segment, Dropdown, Divider, Message} from "semantic-ui-react"
 
-const SelectEntity = () => {
+const SelectEntity = ({entities}) => {
     const [open, setOpen] = useState(false)
+
+    const options = entities.map(entity => Object({
+        key: entity.name,
+        text: entity.name,
+        value: entity.name,
+        image: {avatar: true, src: entity.image}
+        })
+    )
 
     const handleAddEntity = () => {
         console.log('OINK')
@@ -28,7 +36,8 @@ const SelectEntity = () => {
             <Header content='Specify Paranormal Entity' />
             <Modal.Content>
                     <Segment>
-                        <Dropdown fluid clearable selection/>
+                        <Dropdown fluid clearable selection options={options} />
+                        <Message warning>If you don't see your spook in this list, please report it to us!</Message>
                         <Divider />
                         <div align="center">
                             <Button animated onClick={handleAddEntity}>

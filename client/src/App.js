@@ -11,6 +11,14 @@ import NewJob from './components/NewJob'
 function App() {
   const [user, setUser] = useState(null)
 
+  const [entities, setEntities] = useState([])
+
+  useEffect(() => {
+      fetch('/entities')
+      .then(r => r.json())
+      .then(setEntities)
+  }, [])
+
   useEffect(() => {
     fetch('/auth')
     .then(r => {
@@ -29,7 +37,7 @@ function App() {
         </Route>
 
         <Route path='/entities'>
-          <Entities user={user} />
+          <Entities user={user} entities={entities} setEntities={setEntities} />
         </Route>
         
         <Route path='/services'>
@@ -37,7 +45,7 @@ function App() {
         </Route>
 
         <Route path='/newjob'>
-          <NewJob />
+          <NewJob entities={entities} />
         </Route>
 
         <Route exact path='/'>

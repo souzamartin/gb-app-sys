@@ -5,7 +5,7 @@ import SelectEntity from "./SelectEntity"
 
 import {Segment, Header, Form, TextArea, Button, Icon, Label, Image, Message, Modal, Dropdown, Divider} from "semantic-ui-react"
 
-const NewJob = () => {
+const NewJob = ({entities}) => {
     const history = useHistory()
 
     const [formData, setFormData] = useState({
@@ -49,7 +49,7 @@ const NewJob = () => {
             <Segment>
                 <Header size='tiny'>Associated Entities</Header>
 
-                <SelectEntity />
+                <SelectEntity entities={entities} />
 
                 {associatedEntities.length > 0 ?
                     <Segment>
