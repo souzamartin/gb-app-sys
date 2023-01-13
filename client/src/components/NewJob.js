@@ -23,7 +23,18 @@ const NewJob = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log(formData)
+        fetch('/jobs', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+        })
+        .then(r => {
+            if (r.ok) {
+                history.push('/services')
+            } else {
+                r.json().then(console.error)
+            }
+        })
     }
 
     return (
