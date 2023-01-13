@@ -16,7 +16,9 @@ const NewJob = ({entities}) => {
     const [associatedEntities, setAssociatedEntities] = useState([])
 
     const onSelectEntity = (selectedEntity) => {
-        setAssociatedEntities([...associatedEntities, selectedEntity])
+        if (!associatedEntities.includes(selectedEntity)) {
+            setAssociatedEntities([...associatedEntities, selectedEntity])
+        }
     }
 
     const handleInput = (e) => {
@@ -37,7 +39,7 @@ const NewJob = ({entities}) => {
             })
             .then(r => {
                 if (r.ok) {
-                    history.push('/services')
+                    handleJoins()
                 } else {
                     r.json().then(console.error)
                 }
@@ -45,6 +47,21 @@ const NewJob = ({entities}) => {
         } else {
             console.warn('OINK')
         }
+    }
+    
+    const handleJoins = () => {
+        fetch('/job_entities', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(associatedEntities)
+        })
+        .then(r => {
+            if (r.ok) {
+                history.push('/services')
+            } else {
+                r.json().then(console.error)
+            }
+        })
     }
 
     return (
