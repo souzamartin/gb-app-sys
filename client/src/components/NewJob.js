@@ -47,6 +47,24 @@ const NewJob = () => {
         <Segment>
             <Header content='Request Paranormal Investigation and Elimination' />
             <Segment>
+                <Header size='tiny'>Associated Entities</Header>
+
+                <SelectEntity />
+
+                {associatedEntities.length > 0 ?
+                    <Segment>
+                        {associatedEntities.map(entity => 
+                        <Label key={entity.id}>
+                            <Image avatar size="medium" src={entity.image} />
+                            {entity}
+                        </Label>)}
+                    </Segment>
+                :
+                    <Message>Please select the entity or entities involved</Message>
+                }
+
+                <Divider />
+                
                 <Form onSubmit={handleSubmit}>
                     <Form.Field>
                         <label>Location</label>
@@ -66,24 +84,6 @@ const NewJob = () => {
                             value={formData.notes}
                             onChange={handleInput}
                         />
-                    </Form.Field>
-
-                    <Form.Field>
-                        <label>Associated Entities</label>
-
-                        <SelectEntity />
-
-                        {associatedEntities.length > 0 ?
-                            <Segment>
-                                {associatedEntities.map(entity => 
-                                <Label key={entity.id}>
-                                    <Image avatar size="medium" src={entity.image} />
-                                    {entity}
-                                </Label>)}
-                            </Segment>
-                        :
-                            <Message>Please select the entity or entities involved</Message>
-                        }
                     </Form.Field>
 
                     <div align="center">
