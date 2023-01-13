@@ -13,11 +13,11 @@ const JobCard = ({job}) => {
             </Card.Content>
             <Card.Content extra>
                 <Header size='tiny'>Associated Entities</Header>
-                <Label.Group size="huge">
+                <Label.Group size="large">
                     {job.entities.map(entity => 
                         <Label>
-                            <Image avatar className="ghost-avatar" src={entity.image} />
-                            <Header sub>{entity.name}</Header>
+                            <Image avatar size="medium" src={entity.image} />
+                            {entity.name.toUpperCase()}
                         </Label>)}
                 </Label.Group>
             </Card.Content>

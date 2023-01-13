@@ -9,12 +9,22 @@ puts "Complete\n "
 
 puts "Creating users..."
 
+egon = User.create(
+    firstname: "Egon",
+    lastname: "Spengler",
+    email: "espengler@parasych.columbia.edu",
+    password: "bigtwinkie",
+    phone: 2125552368,
+    address: "14 N Moore St, Tribeca",
+    admin: true
+)
+
 ray = User.create(
     firstname: "Raymond",
     lastname: "Stantz",
-    email: "rstantz@parapsych.columbia.edu",
+    email: "ray@rays-occult.biz",
     password: "staypuft",
-    phone: 5552386,
+    phone: 2125552368,
     address: "14 N Moore St, Tribeca",
     admin: true
 )
