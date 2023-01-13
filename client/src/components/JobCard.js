@@ -15,7 +15,7 @@ const JobCard = ({job}) => {
                 <Header size='tiny'>Associated Entities</Header>
                 <Label.Group size="large">
                     {job.entities.map(entity => 
-                        <Label>
+                        <Label key={entity.id}>
                             <Image avatar size="medium" src={entity.image} />
                             {entity.name.toUpperCase()}
                         </Label>)}

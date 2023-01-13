@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Account from './components/Account'
 import Entities from './components/Entities'
 import Services from './components/Services'
+import NewJob from './components/NewJob'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -33,6 +34,10 @@ function App() {
         
         <Route path='/services'>
           <Services />
+        </Route>
+
+        <Route path='/newjob'>
+          <NewJob />
         </Route>
 
         <Route exact path='/'>

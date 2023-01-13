@@ -83,7 +83,6 @@ const ReportEntity = ({user, entities, setEntities}) => {
                                 <Form.Field>
                                     <label>Description</label>
                                     <TextArea
-                                        type='text'
                                         name='description'
                                         value={formData.description}
                                         onChange={handleInput}

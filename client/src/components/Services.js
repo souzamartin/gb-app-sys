@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 import JobCard from "./JobCard"
 
-import {Segment, Header, Button, Icon, Divider, Card} from "semantic-ui-react"
+import {Segment, Container, Header, Button, Icon, Divider, Card} from "semantic-ui-react"
 
 const Services = () => {
     const [jobs, setJobs] = useState([])
@@ -20,13 +20,15 @@ const Services = () => {
     return (
         <Segment>
             <Header>Your Service Requests</Header>
-                <Button positive animated as={Link} to="/">
-                    <Button.Content visible>New Service Request</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name='add' />
-                    </Button.Content>
-                </Button>
-                
+                <Container textAlign="center">
+                    <Button positive animated as={Link} to="/newjob">
+                        <Button.Content visible>New Service Request</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='add' />
+                        </Button.Content>
+                    </Button>
+                </Container>
+
             <Divider />
 
             <Card.Group itemsPerRow={2}>
