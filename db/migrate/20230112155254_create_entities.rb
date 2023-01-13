@@ -4,7 +4,7 @@ class CreateEntities < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :classification, default: "Unknown"
       t.string :description
-      t.text :notes
+      t.text :notes, default: "None"
       t.string :image
       t.boolean :busted, default: false
 

@@ -102,6 +102,14 @@ j2 = Job.create(
 )
 JobEntity.create(job_id: j2.id, entity_id: slimer.id)
 
+j3 = Job.create(
+    location: "Rooftop, 55 Central Park West",
+    notes: "Minions appear to be summoning Gozer the Gozerian, the Destructor",
+    user_id: ray.id
+)
+JobEntity.create(job_id: j3.id, entity_id: zuul.id)
+JobEntity.create(job_id: j3.id, entity_id: vinz.id)
+
 puts "Complete\n "
 
 puts "Seeding complete"

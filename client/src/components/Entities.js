@@ -22,7 +22,7 @@ const Entities = ({user}) => {
             <p>Search our catalog of spooks, specters, and ghosts. 
                 If there's something strange in your neighborhood,
                 but it isn't listed below, please report it to us.</p>
-            <ReportEntity user={user} />
+            <ReportEntity user={user} entities={entities} setEntities={setEntities} />
 
             <Divider />
             

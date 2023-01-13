@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_162534) do
     t.string "name"
     t.string "classification", default: "Unknown"
     t.string "description"
-    t.text "notes"
+    t.text "notes", default: "None"
     t.string "image"
     t.boolean "busted", default: false
     t.datetime "created_at", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_162534) do
   create_table "jobs", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "location"
-    t.string "notes"
+    t.string "notes", default: "None"
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

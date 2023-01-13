@@ -38,7 +38,7 @@ const Login = ({setUser}) => {
 
     return (
         <Segment>
-            <Form id='login-form' onSubmit={handleLogin}>
+            <Form onSubmit={handleLogin}>
                 <Form.Field>
                     <label>Email Address</label>
                     <input

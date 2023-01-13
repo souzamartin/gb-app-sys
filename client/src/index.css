@@ -21,13 +21,6 @@ button {
   margin-left: auto;
 }
 
-#login-form,
-#user-form {
-  display: flex;
-  flex-direction: column;
-  /* width: 50%; */
-}
-
 .ghost-pic {
   object-fit: cover;
   width: 100%;

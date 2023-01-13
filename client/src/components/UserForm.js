@@ -33,7 +33,7 @@ const UserForm = ({onSubmit, user}) => {
 
     return (
         <Segment>
-            <Form id='user-form' onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Field>
                     <label>First Name</label>
                     <input
