@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 
-import {Segment, Form, Button, Icon, Container} from "semantic-ui-react"
+import {Segment, Form, Button, Icon} from "semantic-ui-react"
 
 const UserForm = ({onSubmit, user}) => {
     const initialFormState = {

@@ -33,7 +33,7 @@ function App() {
         </Route>
         
         <Route path='/services'>
-          <Services />
+          <Services user={user} />
         </Route>
 
         <Route path='/newjob'>

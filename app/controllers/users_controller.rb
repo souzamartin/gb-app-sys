@@ -2,7 +2,9 @@ class UsersController < ApplicationController
     skip_before_action :authorize, only: [:create]
     
     def create
-        render json: User.create!(user_params), status: :created
+        new_user = User.create!(user_params)
+        session[:user_id] = new_user.id
+        render json: new_user, status: :created
     end
 
     def show
@@ -10,9 +12,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find(session[:user_id])
-        user.update!(user_params)
-        render json: user, status: :accepted
+        render json: User.find(session[:user_id]).update!(user_params), status: :accepted
     end
 
     def destroy

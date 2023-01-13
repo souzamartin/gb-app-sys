@@ -5,15 +5,19 @@ import JobCard from "./JobCard"
 
 import {Segment, Container, Header, Button, Icon, Divider, Card} from "semantic-ui-react"
 
-const Services = () => {
+const Services = ({user}) => {
     const [jobs, setJobs] = useState([])
 
     useEffect(() => {
         fetch("/myjobs")
-        .then(r => r.json())
-        .then(setJobs)
-    }, []
-    )
+        .then(r => {
+            if (r.ok) {
+                r.json().then(setJobs)
+            } else {
+                r.json().then(console.error)
+            }
+        })
+    }, [])
 
     const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} />)
 
@@ -31,9 +35,13 @@ const Services = () => {
 
             <Divider />
 
-            <Card.Group itemsPerRow={2}>
-                {renderedJobs}
-            </Card.Group>
+            {user ?
+                <Card.Group itemsPerRow={2}>
+                    {renderedJobs}
+                </Card.Group>
+            :
+                <p>Please log in or create an account to view and request services.</p>
+            }
         </Segment>
     )
 }
