@@ -14,7 +14,7 @@ const Entities = ({user}) => {
         .then(setEntities)
     }, [])
 
-    const renderedEntities = entities.map(entity => <EntityCard entity={entity} />)
+    const renderedEntities = entities.map(entity => <EntityCard key={entity.id} entity={entity} />)
 
     return (
         <Segment>

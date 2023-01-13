@@ -8,7 +8,7 @@ const EntityCard = ({entity}) => {
                 <Header>{entity.name.toUpperCase()}</Header>
                 
                 <Header sub>Classification</Header>
-                <span>{entity.classification}</span>
+                <p>{entity.classification}</p>
                 
                 <Header sub>Description</Header>
                 <p>{entity.description}</p>
