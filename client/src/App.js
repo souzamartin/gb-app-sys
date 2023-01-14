@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
 
+import Title from './components/Title'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Account from './components/Account'
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div id='main'>
+      <Title />
       <Nav user={user} setUser={setUser} />
       <Switch>
         <Route path='/account'>
