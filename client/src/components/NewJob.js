@@ -15,9 +15,13 @@ const NewJob = ({entities}) => {
 
     const [associatedEntities, setAssociatedEntities] = useState([])
 
+    const [selectError, setSelectError] = useState(null)
+
     const onSelectEntity = (selectedEntity) => {
         if (!associatedEntities.includes(selectedEntity)) {
             setAssociatedEntities([...associatedEntities, selectedEntity])
+        } else {
+            setSelectError("That entity is already selected")
         }
     }
 
@@ -66,16 +70,14 @@ const NewJob = ({entities}) => {
 
     return (
         <Segment>
-            <Header content='Request Paranormal Investigation and Elimination' />
+            <Header content='New Service Request' />
             <Segment>
                 <Header size='tiny'>Associated Entities</Header>
-
-                <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
 
                 {associatedEntities.length > 0 ?
                     <Segment>
                         {associatedEntities.map(entity => 
-                        <Label key={entity.id}>
+                        <Label key={entity.id} color='violet'>
                             <Image avatar size="medium" src={entity.image} />
                             {entity}
                         </Label>)}
@@ -83,6 +85,10 @@ const NewJob = ({entities}) => {
                 :
                     <Message>Please select the entity or entities involved</Message>
                 }
+
+                {selectError ? <Message warning>{selectError}</Message> : null}
+                
+                <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
 
                 <Divider />
                 
