@@ -101,12 +101,14 @@ const Account = ({user, setUser}) => {
                         closeIcon
                         open={open}
                         trigger={
-                            <Button animated onClick={() => setOpen(true)}>
-                                <Button.Content visible>Edit Account</Button.Content>
-                                <Button.Content hidden>
-                                    <Icon name='edit' />
-                                </Button.Content>
-                            </Button>
+                            <div align='center'>
+                                <Button animated onClick={() => setOpen(true)}>
+                                    <Button.Content visible>Edit Account</Button.Content>
+                                    <Button.Content hidden>
+                                        <Icon name='edit' />
+                                    </Button.Content>
+                                </Button>
+                            </div>
                         }
                         onClose={() => setOpen(false)}
                         onOpen={() => setOpen(true)}
@@ -119,12 +121,14 @@ const Account = ({user, setUser}) => {
 
                     <Divider />
 
-                    <Button negative animated onClick={handleDelete}>
-                        <Button.Content visible>Delete Account</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name='user delete' />
-                        </Button.Content>
-                    </Button>
+                    <div align='center'>
+                        <Button negative animated onClick={handleDelete}>
+                            <Button.Content visible>Delete Account</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='user delete' />
+                            </Button.Content>
+                        </Button>
+                    </div>
                 </>
             :
                 <>

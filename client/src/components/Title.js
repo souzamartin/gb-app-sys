@@ -1,10 +1,18 @@
+import {useHistory} from 'react-router-dom'
+
 import gb from '../images/gb.png'
 
 import {Container, Header, Image} from "semantic-ui-react"
 
 const Title = () => {
+    const history = useHistory()
+
+    const goHome = () => {
+        history.push('/')
+    }
+
     return (
-        <Container id='title'>
+        <Container id='title' onClick={goHome}>
             <Image size='small' verticalAlign='middle' src={gb} />
             <Container>
                 <Header id='title-header'>GHOSTBUSTERS™</Header>

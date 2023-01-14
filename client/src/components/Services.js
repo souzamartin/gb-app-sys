@@ -3,20 +3,22 @@ import {Link} from "react-router-dom"
 
 import JobCard from "./JobCard"
 
-import {Segment, Header, Button, Icon, Divider, Card} from "semantic-ui-react"
+import {Segment, Header, Button, Icon, Divider, Card, Message} from "semantic-ui-react"
 
 const Services = ({user}) => {
     const [jobs, setJobs] = useState([])
 
     useEffect(() => {
-        fetch("/myjobs")
-        .then(r => {
-            if (r.ok) {
-                r.json().then(setJobs)
-            } else {
-                r.json().then(console.error)
-            }
-        })
+        if (user) {
+            fetch("/myjobs")
+            .then(r => {
+                if (r.ok) {
+                    r.json().then(setJobs)
+                } else {
+                    r.json().then(console.error)
+                }
+            })
+        }
     }, [])
 
     const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} />)
@@ -43,7 +45,7 @@ const Services = ({user}) => {
                     {renderedJobs}
                 </Card.Group>
             :
-                <p>Please log in or create an account to view and request services.</p>
+                <Message warning>Please log in or create an account to view and request services.</Message>
             }
         </Segment>
     )
