@@ -1,4 +1,4 @@
-puts "Deleting previous records"
+puts "Deleting previous records..."
 
 User.destroy_all
 Entity.destroy_all
@@ -114,7 +114,7 @@ JobEntity.create(job_id: j2.id, entity_id: slimer.id)
 
 j3 = Job.create(
     location: "Rooftop, 55 Central Park West",
-    notes: "Minions appear to be summoning Gozer the Gozerian, the Destructor",
+    notes: "Minions appear to be summoning Gozer the Destructor",
     user_id: ray.id
 )
 JobEntity.create(job_id: j3.id, entity_id: zuul.id)
