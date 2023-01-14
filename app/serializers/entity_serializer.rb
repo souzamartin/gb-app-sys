@@ -1,3 +1,3 @@
 class EntitySerializer < ActiveModel::Serializer
-  attributes :name, :classification, :description, :notes, :image, :busted
+  attributes :id, :name, :classification, :description, :notes, :image
 end

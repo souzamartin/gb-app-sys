@@ -9,7 +9,7 @@ const Title = () => {
             <Container>
                 <Header id='title-header'>GHOSTBUSTERS™</Header>
                 <Header size='medium'>Professional Paranormal Investigation & Elimination</Header>
-                <Header sub>Serving the Five Boroughs and Greater Tri-State Area Since 1984</Header>
+                <Header sub>Serving the Five Boroughs & Greater Tri-State Area Since 1984</Header>
             </Container>
             {/* <Container textAlign='center'>
                 <Header size='large' color='red'>"WE BELIEVE YOU"</Header>

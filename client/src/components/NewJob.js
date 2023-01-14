@@ -80,7 +80,7 @@ const NewJob = ({entities}) => {
                         {associatedEntities.map(entity => 
                         <Label key={entity.id} color='violet'>
                             <img className="ghost-avatar" src={entity.image} />
-                            {entity.name}
+                            {entity.name.toUpperCase()}
                         </Label>)}
                     </Segment>
                 :
