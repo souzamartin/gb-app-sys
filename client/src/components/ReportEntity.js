@@ -47,7 +47,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                 closeIcon
                 open={open}
                 trigger={
-                    <Button color='purple' animated onClick={() => setOpen(true)}>
+                    <Button color='violet' animated onClick={() => setOpen(true)}>
                         <Button.Content visible>Report New Entity</Button.Content>
                         <Button.Content hidden>
                             <Icon name='eye' />

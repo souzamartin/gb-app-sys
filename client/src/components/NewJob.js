@@ -20,6 +20,7 @@ const NewJob = ({entities}) => {
     const onSelectEntity = (selectedEntity) => {
         if (!associatedEntities.includes(selectedEntity)) {
             setAssociatedEntities([...associatedEntities, selectedEntity])
+            setSelectError(null)
         } else {
             setSelectError("That entity is already selected")
         }
@@ -120,8 +121,18 @@ const NewJob = ({entities}) => {
                                 <Icon name='arrow circle right' />
                             </Button.Content>
                         </Button>
+
                     </div>
                 </Form>
+
+                {/* <div align="center">
+                    <Button negative animated>
+                        <Button.Content visible>Cancel</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='x' />
+                        </Button.Content>
+                    </Button>
+                </div> */}
             </Segment>
         </Segment>
     )
