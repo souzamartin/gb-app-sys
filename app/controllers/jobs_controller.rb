@@ -8,11 +8,14 @@ class JobsController < ApplicationController
     end
 
     def create
-        render json: User.find(session[:user_id]).jobs.create!(job_params), status: :created
-    end
+        new_job = Job.create!(
+            user_id: session[:user_id],
+            location: params[:formData][:location],
+            notes: params[:formData][:notes]
+        )
 
-    private
-    def job_params
-        params.permit(:location, :notes)
+        params[:associatedEntities].each do |entity|
+            JobEntity.create(job_id: new_job.id, entity_id: entity[:id])
+        end
     end
 end

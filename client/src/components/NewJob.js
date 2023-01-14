@@ -40,11 +40,11 @@ const NewJob = ({entities}) => {
             fetch('/jobs', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(formData)
+                body: JSON.stringify({formData, associatedEntities})
             })
             .then(r => {
                 if (r.ok) {
-                    handleJoins()
+                    history.push('/services')
                 } else {
                     r.json().then(console.error)
                 }
@@ -52,21 +52,6 @@ const NewJob = ({entities}) => {
         } else {
             console.warn('OINK')
         }
-    }
-    
-    const handleJoins = () => {
-        fetch('/job_entities', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(associatedEntities)
-        })
-        .then(r => {
-            if (r.ok) {
-                history.push('/services')
-            } else {
-                r.json().then(console.error)
-            }
-        })
     }
 
     return (
