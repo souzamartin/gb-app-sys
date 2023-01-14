@@ -9,7 +9,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
         name: "",
         classification: undefined,
         description: "",
-        notes: "",
+        notes: undefined,
         image: ""
     })
 
