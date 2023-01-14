@@ -1,26 +1,23 @@
 import {useState} from "react"
 
-import {Modal, Button, Icon, Header, Segment, Dropdown, Divider, Message} from "semantic-ui-react"
+import EntityCard from "./EntityCard"
+
+import {Modal, Button, Icon, Header, Segment, Dropdown, Divider, Message, Card} from "semantic-ui-react"
 
 const SelectEntity = ({entities, onSelectEntity}) => {
     const [open, setOpen] = useState(false)
 
-    const [selected, setSelected] = useState(null)
-
-    const options = entities.map(entity =>
-        Object({
-            key: entity.name,
-            text: entity.name,
-            value: entity.name,
-            image: {avatar: true, src: entity.image}
-        })
-    )
-
-    const handleAddEntity = () => {
-        onSelectEntity(selected)
-        setSelected(null)
+    const handleClick = (entity) => {
+        onSelectEntity(entity)
         setOpen(false)
     }
+
+    const renderedEntities = entities.map(entity => 
+        <EntityCard
+            key={entity.id}
+            entity={entity}
+            handleClick={handleClick}
+        />)
 
     return (
         <Modal
@@ -40,24 +37,11 @@ const SelectEntity = ({entities, onSelectEntity}) => {
             <Header content='Specify Paranormal Entity' />
             <Modal.Content>
                     <Segment>
-                        <Dropdown
-                            fluid
-                            clearable
-                            search
-                            selection
-                            options={options}
-                            onChange={(e, data) => setSelected(data.value)}
-                        />
                         <Message warning>If you don't see your spook in this list, please report it to us!</Message>
-                        <Divider />
-                        <div align="center">
-                            <Button animated onClick={handleAddEntity}>
-                                <Button.Content visible>Confirm Entity</Button.Content>
-                                <Button.Content hidden>
-                                    <Icon name='check' />
-                                </Button.Content>
-                            </Button>
-                        </div>
+
+                        <Card.Group itemsPerRow={2}>
+                            {renderedEntities}
+                        </Card.Group>
                     </Segment>
             </Modal.Content>
         </Modal>

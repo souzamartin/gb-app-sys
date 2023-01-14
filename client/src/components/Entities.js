@@ -7,7 +7,17 @@ import {Segment, Header, Divider, Card} from "semantic-ui-react"
 
 const Entities = ({user, entities, setEntities}) => {
 
-    const renderedEntities = entities.map(entity => <EntityCard key={entity.id} entity={entity} />)
+    const handleClick = (entity) => {
+        console.log(entity)
+    }
+
+    const renderedEntities = entities.map(entity => 
+        <EntityCard
+            key={entity.id}
+            entity={entity}
+            handleClick={handleClick}
+        />
+    )
 
     return (
         <Segment>

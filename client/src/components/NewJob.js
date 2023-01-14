@@ -79,8 +79,8 @@ const NewJob = ({entities}) => {
                     <Segment>
                         {associatedEntities.map(entity => 
                         <Label key={entity.id} color='violet'>
-                            <Image avatar size="medium" src={entity.image} />
-                            {entity}
+                            <img className="ghost-avatar" src={entity.image} />
+                            {entity.name.toUpperCase()}
                         </Label>)}
                     </Segment>
                 :
