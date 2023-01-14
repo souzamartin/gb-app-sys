@@ -74,7 +74,7 @@ const Account = ({user, setUser}) => {
                             <List.Item>
                                 <Icon name='mail' />
                                 <List.Content>
-                                    <List.Header>Email Address</List.Header>
+                                    <List.Header>E-Mail Address</List.Header>
                                     {user.email}
                                 </List.Content>
                             </List.Item>

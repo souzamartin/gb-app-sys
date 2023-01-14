@@ -53,7 +53,7 @@ const UserForm = ({onSubmit, user}) => {
                 </Form.Field>
 
                 <Form.Field>
-                    <label>Email Address</label>
+                    <label>E-Mail Address</label>
                     <input
                         name='email'
                         value={formData.email}

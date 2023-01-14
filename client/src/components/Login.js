@@ -40,14 +40,15 @@ const Login = ({setUser}) => {
         <Segment>
             <Form onSubmit={handleLogin}>
                 <Form.Field>
-                    <label>Email Address</label>
+                    <label>E-Mail Address</label>
                     <input
                         name='email'
                         value={login.email}
-                        placeholder='Enter email address'
+                        placeholder='Enter e-mail address'
                         onChange={handleInput}
                         />
                 </Form.Field>
+
                 <Form.Field>
                     <label>Password</label>
                     <input
@@ -57,13 +58,16 @@ const Login = ({setUser}) => {
                         placeholder='Enter password'
                         onChange={handleInput}    
                         />
+
                 </Form.Field>
-                <Button primary animated type='submit'>
-                    <Button.Content visible>Log In</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name='sign-in' />
-                    </Button.Content>
-                </Button>
+                    <div align="center">
+                        <Button primary animated type='submit'>
+                            <Button.Content visible>Log In</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='sign-in' />
+                            </Button.Content>
+                        </Button>
+                    </div>
             </Form>
         </Segment>
     )
