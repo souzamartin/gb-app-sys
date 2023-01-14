@@ -1,15 +1,15 @@
 import {useState} from "react"
 
-import {Container, Button, Icon, Modal, Header, Segment, Form, TextArea} from "semantic-ui-react"
+import {Button, Icon, Modal, Header, Segment, Form, TextArea} from "semantic-ui-react"
 
 const ReportEntity = ({user, entities, setEntities}) => {
     const [open, setOpen] = useState(false)
 
     const [formData, setFormData] = useState({
         name: "",
-        classification: "",
+        classification: undefined,
         description: "",
-        notes: "",
+        notes: undefined,
         image: ""
     })
 
@@ -42,7 +42,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
     }
 
     return (
-        <Container textAlign="center">
+        <div align="center">
             <Modal
                 closeIcon
                 open={open}
@@ -122,7 +122,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                     }
                 </Modal.Content>
             </Modal>
-        </Container>
+        </div>
     )
 }
 

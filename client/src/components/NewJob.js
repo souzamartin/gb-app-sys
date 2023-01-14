@@ -1,9 +1,11 @@
 import {useState} from "react"
 import {useHistory} from "react-router-dom"
 
-import {Segment, Header, Form, TextArea, Button, Icon} from "semantic-ui-react"
+import SelectEntity from "./SelectEntity"
 
-const NewJob = () => {
+import {Segment, Header, Form, TextArea, Button, Icon, Label, Image, Message, Modal, Dropdown, Divider} from "semantic-ui-react"
+
+const NewJob = ({entities}) => {
     const history = useHistory()
 
     const [formData, setFormData] = useState({
@@ -12,6 +14,12 @@ const NewJob = () => {
     })
 
     const [associatedEntities, setAssociatedEntities] = useState([])
+
+    const onSelectEntity = (selectedEntity) => {
+        if (!associatedEntities.includes(selectedEntity)) {
+            setAssociatedEntities([...associatedEntities, selectedEntity])
+        }
+    }
 
     const handleInput = (e) => {
         setFormData({
@@ -23,10 +31,29 @@ const NewJob = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        fetch('/jobs', {
+        if (associatedEntities.length > 0) {
+            fetch('/jobs', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            })
+            .then(r => {
+                if (r.ok) {
+                    handleJoins()
+                } else {
+                    r.json().then(console.error)
+                }
+            })
+        } else {
+            console.warn('OINK')
+        }
+    }
+    
+    const handleJoins = () => {
+        fetch('/job_entities', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(formData)
+            body: JSON.stringify(associatedEntities)
         })
         .then(r => {
             if (r.ok) {
@@ -41,6 +68,24 @@ const NewJob = () => {
         <Segment>
             <Header content='Request Paranormal Investigation and Elimination' />
             <Segment>
+                <Header size='tiny'>Associated Entities</Header>
+
+                <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
+
+                {associatedEntities.length > 0 ?
+                    <Segment>
+                        {associatedEntities.map(entity => 
+                        <Label key={entity.id}>
+                            <Image avatar size="medium" src={entity.image} />
+                            {entity}
+                        </Label>)}
+                    </Segment>
+                :
+                    <Message>Please select the entity or entities involved</Message>
+                }
+
+                <Divider />
+                
                 <Form onSubmit={handleSubmit}>
                     <Form.Field>
                         <label>Location</label>
