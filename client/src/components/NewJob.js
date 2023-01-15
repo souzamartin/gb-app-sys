@@ -61,13 +61,13 @@ const NewJob = ({entities}) => {
                 <Header size='tiny'>Associated Entities</Header>
 
                 {associatedEntities.length > 0 ?
-                    <Segment>
+                    <Label.Group size="large">
                         {associatedEntities.map(entity => 
                         <Label key={entity.id} color='violet'>
                             <img className="ghost-avatar" src={entity.image} alt={entity.name} />
                             {entity.name.toUpperCase()}
                         </Label>)}
-                    </Segment>
+                    </Label.Group>
                 :
                     <Message>Please select the entity or entities involved</Message>
                 }

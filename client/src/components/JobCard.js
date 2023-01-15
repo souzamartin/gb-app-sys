@@ -1,4 +1,4 @@
-import {Card, Header, Label, Image} from "semantic-ui-react"
+import {Card, Header, Label} from "semantic-ui-react"
 
 const JobCard = ({job}) => {
     return (

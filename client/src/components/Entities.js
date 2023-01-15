@@ -38,7 +38,7 @@ const Entities = ({user, entities, setEntities}) => {
             <Input
                 fluid
                 focus
-                placeholder='Search entities...'
+                placeholder='Search entities by name...'
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
             />
