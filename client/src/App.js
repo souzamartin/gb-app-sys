@@ -32,28 +32,32 @@ function App() {
   return (
     <div id='main'>
       <Title />
+
       <Nav user={user} setUser={setUser} />
-      <Switch>
-        <Route path='/account'>
-          <Account user={user} setUser={setUser} />
-        </Route>
 
-        <Route path='/entities'>
-          <Entities user={user} entities={entities} setEntities={setEntities} />
-        </Route>
-        
-        <Route path='/services'>
-          <Services user={user} />
-        </Route>
+      <div id='main-content'>
+        <Switch>
+          <Route path='/account'>
+            <Account user={user} setUser={setUser} />
+          </Route>
 
-        <Route path='/newjob'>
-          <NewJob entities={entities} />
-        </Route>
+          <Route path='/entities'>
+            <Entities user={user} entities={entities} setEntities={setEntities} />
+          </Route>
+          
+          <Route path='/services'>
+            <Services user={user} />
+          </Route>
 
-        <Route exact path='/'>
-          <Home user={user} />
-        </Route>
-      </Switch>
+          <Route path='/newjob'>
+            <NewJob entities={entities} />
+          </Route>
+
+          <Route exact path='/'>
+            <Home user={user} />
+          </Route>
+        </Switch>
+      </div>
     </div>
   )
 }

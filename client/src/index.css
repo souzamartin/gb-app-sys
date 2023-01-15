@@ -6,9 +6,18 @@ button {
   display: flex;
   flex-direction: column;
   width: 80%;
+  max-width: 1000px;
   margin: auto;
   margin-top: 30px;
   padding-bottom: 50px;
+}
+
+#main-content {
+  /* display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto; */
+  margin-top: 30px;
 }
 
 #title {
@@ -17,7 +26,10 @@ button {
   align-items: center;
   gap: 5%;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 #title-header {

@@ -19,10 +19,10 @@ const Title = () => {
                 <Header size='medium'>Professional Paranormal Investigation & Elimination</Header>
                 <Header sub>Serving the Five Boroughs & Greater Tri-State Area Since 1984</Header>
             </Container>
-            {/* <Container textAlign='center'>
+            <Container textAlign='center'>
                 <Header size='large' color='red'>"WE BELIEVE YOU"</Header>
                 <Header size='medium'>CALL 212-555-2368</Header>
-            </Container> */}
+            </Container>
         </Container>
     )
 }

@@ -1,11 +1,12 @@
-import {useState, useEffect} from "react"
+import {useState} from "react"
 
 import ReportEntity from "./ReportEntity"
 import EntityCard from "./EntityCard"
 
-import {Segment, Header, Divider, Card} from "semantic-ui-react"
+import {Segment, Header, Divider, Input, Card} from "semantic-ui-react"
 
 const Entities = ({user, entities, setEntities}) => {
+    const [searchText, setSearchText] = useState("")
 
     const handleClick = (entity) => {
         console.log(entity)
@@ -25,7 +26,18 @@ const Entities = ({user, entities, setEntities}) => {
             <p>Search our catalog of spooks, specters, and ghosts. 
                 If there's something strange in your neighborhood,
                 but it isn't listed below, please report it to us.</p>
+
             <ReportEntity user={user} entities={entities} setEntities={setEntities} />
+
+            <Divider />
+
+            <Input
+                fluid
+                focus
+                placeholder='Search entities...'
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+            />
 
             <Divider />
             
