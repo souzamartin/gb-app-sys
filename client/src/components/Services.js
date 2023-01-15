@@ -21,7 +21,13 @@ const Services = ({user}) => {
         }
     }, [])
 
-    const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} />)
+    const getAllJobs = () => {
+        fetch('/jobs')
+        .then(r => r.json())
+        .then(setJobs)
+    }
+
+    const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} user={user} />)
 
     return (
         <Segment>
@@ -35,8 +41,18 @@ const Services = ({user}) => {
                             <Icon name='add' />
                         </Button.Content>
                     </Button>
+
+                    {user.admin ?
+                        <Button primary animated onClick={getAllJobs}>
+                            <Button.Content visible>Show All Jobs</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='book' />
+                            </Button.Content>
+                        </Button>
+                    : null}
                 </div>
             : null}
+            
 
             <Divider />
 

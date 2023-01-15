@@ -5,4 +5,8 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :jobs, dependent: :destroy
+
+    def full_name
+        self.firstname + " " + self.lastname
+    end
 end

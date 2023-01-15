@@ -1,10 +1,16 @@
 import {Card, Header, Label} from "semantic-ui-react"
 
-const JobCard = ({job}) => {
+const JobCard = ({job, user}) => {
     return (
         <Card>
             <Card.Content>
                 <Header size='small'>Order No. {job.id}</Header>
+                {user.admin ?
+                    <>
+                        <Header sub>Customer</Header>
+                        <p>{job.user.full_name}</p>
+                    </>
+                : null}
                 <Header sub>Location</Header>
                 <p>{job.location}</p>
 
