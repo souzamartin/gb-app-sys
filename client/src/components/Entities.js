@@ -12,7 +12,11 @@ const Entities = ({user, entities, setEntities}) => {
         console.log(entity)
     }
 
-    const renderedEntities = entities.map(entity => 
+    const filteredEntities = entities.filter(entity =>
+        entity.name.toLowerCase().includes(searchText.toLowerCase())
+    )
+
+    const renderedEntities = filteredEntities.map(entity => 
         <EntityCard
             key={entity.id}
             entity={entity}
