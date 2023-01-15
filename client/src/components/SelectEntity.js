@@ -2,7 +2,7 @@ import {useState} from "react"
 
 import EntityCard from "./EntityCard"
 
-import {Modal, Button, Icon, Header, Segment, Dropdown, Divider, Message, Card} from "semantic-ui-react"
+import {Modal, Button, Icon, Header, Segment, Message, Card} from "semantic-ui-react"
 
 const SelectEntity = ({entities, onSelectEntity}) => {
     const [open, setOpen] = useState(false)

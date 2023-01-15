@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom"
 
 import SelectEntity from "./SelectEntity"
 
-import {Segment, Header, Form, TextArea, Button, Icon, Label, Image, Message, Modal, Dropdown, Divider} from "semantic-ui-react"
+import {Segment, Header, Form, TextArea, Button, Icon, Label, Message, Divider} from "semantic-ui-react"
 
 const NewJob = ({entities}) => {
     const history = useHistory()

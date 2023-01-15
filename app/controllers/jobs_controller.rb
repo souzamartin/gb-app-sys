@@ -18,4 +18,9 @@ class JobsController < ApplicationController
             JobEntity.create(job_id: new_job.id, entity_id: entity[:id])
         end
     end
+
+    def destroy
+        Job.find(params[:id]).destroy
+        head :no_content
+    end
 end

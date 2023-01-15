@@ -27,7 +27,12 @@ const Services = ({user}) => {
         .then(setJobs)
     }
 
-    const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} user={user} />)
+    const onDelete = (id) => {
+        const updatedJobs = jobs.filter(job => job.id !== id)
+        setJobs(updatedJobs)
+    }
+
+    const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} user={user} onDelete={onDelete} />)
 
     return (
         <Segment>

@@ -12,7 +12,7 @@ puts "Creating users..."
 egon = User.create(
     firstname: "Egon",
     lastname: "Spengler",
-    email: "espengler@parasych.columbia.edu",
+    email: "espengler@parapsych.columbia.edu",
     password: "bigtwinkie",
     phone: 2125552368,
     address: "14 N Moore St, Tribeca",
