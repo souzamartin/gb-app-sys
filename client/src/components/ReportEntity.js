@@ -1,9 +1,11 @@
 import {useState} from "react"
 
-import {Button, Icon, Modal, Header, Segment, Form, TextArea} from "semantic-ui-react"
+import {Button, Icon, Modal, Header, Segment, Form, TextArea, Message} from "semantic-ui-react"
 
 const ReportEntity = ({user, entities, setEntities}) => {
     const [open, setOpen] = useState(false)
+
+    const [errors, setErrors] = useState(null)
 
     const [formData, setFormData] = useState({
         name: "",
@@ -36,7 +38,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                 )
                 setOpen(false)
             } else {
-                r.json().then(console.error)
+                r.json().then(setErrors)
             }
         })
     }
@@ -59,6 +61,12 @@ const ReportEntity = ({user, entities, setEntities}) => {
             >
                 <Header content='Report New Paranormal Entity' />
                 <Modal.Content>
+                    {errors ?
+                        <Message negative>
+                            {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
+                        </Message>
+                    : null}
+
                     {user ?
                         <Segment>
                             <Form onSubmit={handleSubmit}>

@@ -4,10 +4,12 @@ import {useHistory} from 'react-router-dom'
 import Login from './Login'
 import UserForm from './UserForm'
 
-import {Header, Segment, Button, Icon, List, Divider, Modal, ModalActions} from 'semantic-ui-react'
+import {Header, Segment, Button, Icon, List, Divider, Modal, Message} from 'semantic-ui-react'
 
 const Account = ({user, setUser}) => {
     const history = useHistory()
+
+    const [errors, setErrors] = useState(null)
 
     const [open, setOpen] = useState(false)
 
@@ -22,7 +24,7 @@ const Account = ({user, setUser}) => {
                 r.json().then(setUser)
                 history.push('/')
             } else {
-                r.json().then(console.error)
+                r.json().then(setErrors)
             }
         })
     }
@@ -38,7 +40,7 @@ const Account = ({user, setUser}) => {
                 r.json().then(setUser)
                 setOpen(false)
             } else {
-                r.json().then(console.error)
+                r.json().then(setErrors)
             }
         })
     }
@@ -115,6 +117,11 @@ const Account = ({user, setUser}) => {
                     >
                         <Header content='Edit Account Information' />
                         <Modal.Content>
+                            {errors ?
+                            <Message negative>
+                                {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
+                            </Message>
+                            : null}
                             <UserForm user={user} onSubmit={handleEdit} />
                         </Modal.Content>
                     </Modal>
@@ -134,6 +141,11 @@ const Account = ({user, setUser}) => {
                 <>
                     <Header size='medium'>Please log in or create an account</Header>
                     <Login setUser={setUser} />
+                    {errors ?
+                        <Message negative>
+                            {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
+                        </Message>
+                    : null}
                     <UserForm onSubmit={onSignup} />
                 </>
             }

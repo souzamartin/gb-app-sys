@@ -15,6 +15,7 @@ const NewJob = ({entities}) => {
 
     const [associatedEntities, setAssociatedEntities] = useState([])
 
+    const [errors, setErrors] = useState(null)
     const [selectError, setSelectError] = useState(null)
 
     const onSelectEntity = (selectedEntity) => {
@@ -51,7 +52,7 @@ const NewJob = ({entities}) => {
                 if (r.ok) {
                     history.push('/services')
                 } else {
-                    r.json().then(console.error)
+                    r.json().then(setErrors)
                 }
             })
         } else {
@@ -89,6 +90,12 @@ const NewJob = ({entities}) => {
                 </Button>
 
                 <Divider />
+
+                {errors ?
+                    <Message negative>
+                        {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
+                    </Message>
+                : null}
                 
                 <Form onSubmit={handleSubmit}>
                     <Form.Field>

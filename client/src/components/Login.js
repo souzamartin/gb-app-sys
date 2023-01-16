@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
-import {Segment, Header, Form, Button, Icon} from 'semantic-ui-react'
+import {Segment, Form, Button, Icon, Message} from 'semantic-ui-react'
 
 const Login = ({setUser}) => {
     const history = useHistory()
@@ -10,6 +10,8 @@ const Login = ({setUser}) => {
         email: '',
         password: ''
     })
+
+    const [errors, setErrors] = useState(null)
 
     const handleInput = (e) => {
         setLogin({
@@ -31,45 +33,52 @@ const Login = ({setUser}) => {
                 r.json().then(setUser)
                 history.push('/')
             } else {
-                r.json().then(console.error)
+                r.json().then(setErrors)
             }
         })
     }
 
     return (
-        <Segment>
-            <Form onSubmit={handleLogin}>
-                <Form.Field>
-                    <label>E-Mail Address</label>
-                    <input
-                        name='email'
-                        value={login.email}
-                        placeholder='Enter e-mail address'
-                        onChange={handleInput}
-                        />
-                </Form.Field>
+        <>
+            {errors ?
+                <Message negative>
+                    <li>{errors.error}</li>
+                </Message>
+            : null}
+            <Segment>
+                <Form onSubmit={handleLogin}>
+                    <Form.Field>
+                        <label>E-Mail Address</label>
+                        <input
+                            name='email'
+                            value={login.email}
+                            placeholder='Enter e-mail address'
+                            onChange={handleInput}
+                            />
+                    </Form.Field>
 
-                <Form.Field>
-                    <label>Password</label>
-                    <input
-                        type='password'
-                        name='password'
-                        value={login.password}
-                        placeholder='Enter password'
-                        onChange={handleInput}    
-                        />
+                    <Form.Field>
+                        <label>Password</label>
+                        <input
+                            type='password'
+                            name='password'
+                            value={login.password}
+                            placeholder='Enter password'
+                            onChange={handleInput}    
+                            />
 
-                </Form.Field>
-                    <div align="center">
-                        <Button primary animated type='submit'>
-                            <Button.Content visible>Log In</Button.Content>
-                            <Button.Content hidden>
-                                <Icon name='sign-in' />
-                            </Button.Content>
-                        </Button>
-                    </div>
-            </Form>
-        </Segment>
+                    </Form.Field>
+                        <div align="center">
+                            <Button primary animated type='submit'>
+                                <Button.Content visible>Log In</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='sign-in' />
+                                </Button.Content>
+                            </Button>
+                        </div>
+                </Form>
+            </Segment>
+        </>
     )
 }
 
