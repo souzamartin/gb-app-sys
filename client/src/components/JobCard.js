@@ -31,7 +31,7 @@ const JobCard = ({job, user, onDelete}) => {
                 <p>{job.location}</p>
 
                 <Header sub>Notes</Header>
-                <p>{job.notes}</p>
+                {job.notes ? <p>{job.notes}</p> : "None"}
             </Card.Content>
 
             <Card.Content extra>

@@ -7,7 +7,6 @@ import {Segment, Header, Button, Icon, Divider, Card, Message} from "semantic-ui
 
 const Services = ({user}) => {
     const [jobs, setJobs] = useState([])
-
     useEffect(() => {
         if (user) {
             fetch("/myjobs")
