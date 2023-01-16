@@ -12,7 +12,9 @@ class UsersController < ApplicationController
     end
 
     def update
-        render json: User.find(session[:user_id]).update!(user_params), status: :accepted
+        user = User.find(session[:user_id])
+        user.update!(user_params)
+        render json: user, status: :accepted
     end
 
     def destroy

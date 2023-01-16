@@ -10,7 +10,7 @@ const NewJob = ({entities}) => {
 
     const [formData, setFormData] = useState({
         location: "",
-        notes: undefined,
+        notes: undefined
     })
 
     const [associatedEntities, setAssociatedEntities] = useState([])
@@ -24,6 +24,11 @@ const NewJob = ({entities}) => {
         } else {
             setSelectError("That entity is already selected")
         }
+    }
+
+    const handleClear = () => {
+        setAssociatedEntities([])
+        setSelectError("")
     }
 
     const handleInput = (e) => {
@@ -50,7 +55,7 @@ const NewJob = ({entities}) => {
                 }
             })
         } else {
-            console.warn('OINK')
+            setSelectError("You must select one or more entities")
         }
     }
 
@@ -63,7 +68,7 @@ const NewJob = ({entities}) => {
                 {associatedEntities.length > 0 ?
                     <Label.Group size="large">
                         {associatedEntities.map(entity => 
-                        <Label key={entity.id} color='violet'>
+                        <Label key={entity.id}>
                             <img className="ghost-avatar" src={entity.image} alt={entity.name} />
                             {entity.name.toUpperCase()}
                         </Label>)}
@@ -75,6 +80,13 @@ const NewJob = ({entities}) => {
                 {selectError ? <Message warning>{selectError}</Message> : null}
                 
                 <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
+
+                <Button animated onClick={handleClear} >
+                        <Button.Content visible>Clear Entities</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='undo' />
+                        </Button.Content>
+                </Button>
 
                 <Divider />
                 

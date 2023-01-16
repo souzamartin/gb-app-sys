@@ -17,7 +17,7 @@ const SelectEntity = ({entities, onSelectEntity}) => {
             closeIcon
             open={open}
             trigger={
-                <Button animated onClick={() => setOpen(true)}>
+                <Button color='violet' animated onClick={() => setOpen(true)}>
                     <Button.Content visible>Add Entity</Button.Content>
                     <Button.Content hidden>
                         <Icon name='add' />

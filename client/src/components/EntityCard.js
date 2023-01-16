@@ -22,12 +22,13 @@ const EntityCard = ({entity, handleClick}) => {
             </Card.Content>
             <Card.Content extra textAlign="center">
                 {location.pathname === '/entities' ? 
-                    <Button color='red' animated onClick={() => handleClick(entity)}>
-                        <Button.Content visible>Schedule Job</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name='ban' />
-                        </Button.Content>
-                    </Button>
+                    null
+                    // <Button color='red' animated onClick={() => handleClick(entity)}>
+                    //     <Button.Content visible>Schedule Job</Button.Content>
+                    //     <Button.Content hidden>
+                    //         <Icon name='ban' />
+                    //     </Button.Content>
+                    // </Button>
                 : 
                     <Button color='violet' animated onClick={() => handleClick(entity)}>
                         <Button.Content visible>Select Entity</Button.Content>
