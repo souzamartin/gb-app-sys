@@ -3,7 +3,6 @@ puts "Deleting previous records..."
 User.destroy_all
 Entity.destroy_all
 Job.destroy_all
-JobEntity.destroy_all
 
 puts "Complete\n "
 
@@ -81,11 +80,26 @@ eleanor = Entity.create(
     image: "https://s26162.pcdn.co/wp-content/uploads/2018/10/loc_ca_library_movie05.jpg"
 )
 
+kymberly = Entity.create(
+    name: "Dream Ghost",
+    classification: "Class 4 anchored noncorporeal",
+    description: "An unusually friendly ghost.",
+    image: "https://www.tafce.com/images/thumb/3/3f/Dream_Ghost_-_Edited.png/650px-Dream_Ghost_-_Edited.png"
+)
+
 cabby = Entity.create(
     name: "Zombie Taxi Driver",
     classification: "Class 3 anonymous haunting",
-    description: "Scariest cab ride I've ever taken, but I did get downtown on time.",
+    description: "Possesses and transmogrifies taxi drivers, making their
+        driving dangerous and erratic—moreso than usual.",
     image: "https://static.wikia.nocookie.net/ghostbusters/images/b/b4/Taxidriverghost.png"
+)
+
+subway = Entity.create(
+    name: "Subway Ghost",
+    description: "Subterranean specter. Passes through every turnstile.",
+    notes: "Wanted for fare evasion",
+    image: "https://static.wikia.nocookie.net/ghostbusters/images/3/3a/SubwayGhost.png"
 )
 
 puts "Complete\n "
