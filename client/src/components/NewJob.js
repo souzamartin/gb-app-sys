@@ -5,7 +5,7 @@ import SelectEntity from "./SelectEntity"
 
 import {Segment, Header, Form, TextArea, Button, Icon, Label, Message, Divider} from "semantic-ui-react"
 
-const NewJob = ({entities, job, setOpenEdit}) => {
+const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
     const history = useHistory()
     const location = useLocation()
 
@@ -55,6 +55,7 @@ const NewJob = ({entities, job, setOpenEdit}) => {
         })
         .then(r => {
             if (r.ok) {
+                r.json().then(onUpdate)
                 setOpenEdit(false)
             } else {
                 r.json().then(setErrors)

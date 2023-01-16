@@ -4,7 +4,7 @@ import NewJob from "./NewJob"
 
 import {Card, Header, Label, Modal, Button, Icon} from "semantic-ui-react"
 
-const JobCard = ({job, user, entities, onDelete}) => {
+const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
     const [openEdit, setOpenEdit] = useState(false)
     const [openCancel, setOpenCancel] = useState(false)
 
@@ -66,7 +66,12 @@ const JobCard = ({job, user, entities, onDelete}) => {
                         >
                         <Header content='Update Service Request' />
                         <Modal.Content>
-                                <NewJob job={job} entities={entities} setOpenEdit={setOpenEdit} />
+                                <NewJob
+                                    job={job}
+                                    entities={entities}
+                                    setOpenEdit={setOpenEdit}
+                                    onUpdate={onUpdate}
+                                />
                         </Modal.Content>
                     </Modal>
 

@@ -7,6 +7,7 @@ import {Segment, Header, Button, Icon, Divider, Card, Message} from "semantic-ui
 
 const Services = ({user, entities}) => {
     const [jobs, setJobs] = useState([])
+
     useEffect(() => {
         if (user) {
             fetch("/myjobs")
@@ -26,6 +27,11 @@ const Services = ({user, entities}) => {
         .then(setJobs)
     }
 
+    const onUpdate = (updatedJob) => {
+        const updatedJobs = jobs.filter(job => job.id !== updatedJob.id)
+        setJobs([...updatedJobs, updatedJob])
+    }
+
     const onDelete = (id) => {
         const updatedJobs = jobs.filter(job => job.id !== id)
         setJobs(updatedJobs)
@@ -37,6 +43,7 @@ const Services = ({user, entities}) => {
             job={job}
             user={user}
             entities={entities}
+            onUpdate={onUpdate}
             onDelete={onDelete} 
         />
     )

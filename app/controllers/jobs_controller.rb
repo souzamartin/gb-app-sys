@@ -30,6 +30,8 @@ class JobsController < ApplicationController
         params[:associatedEntities].each do |entity|
             JobEntity.create(job_id: job.id, entity_id: entity[:id])
         end
+
+        render json: job, status: :accepted
     end
 
     def destroy
