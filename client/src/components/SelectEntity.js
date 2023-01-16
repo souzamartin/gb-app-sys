@@ -1,8 +1,8 @@
 import {useState} from "react"
 
-import EntityCard from "./EntityCard"
+import GhostGallery from "./GhostGallery"
 
-import {Modal, Button, Icon, Header, Segment, Message, Card} from "semantic-ui-react"
+import {Modal, Button, Icon, Header, Segment, Message} from "semantic-ui-react"
 
 const SelectEntity = ({entities, onSelectEntity}) => {
     const [open, setOpen] = useState(false)
@@ -11,13 +11,6 @@ const SelectEntity = ({entities, onSelectEntity}) => {
         onSelectEntity(entity)
         setOpen(false)
     }
-
-    const renderedEntities = entities.map(entity => 
-        <EntityCard
-            key={entity.id}
-            entity={entity}
-            handleClick={handleClick}
-        />)
 
     return (
         <Modal
@@ -34,14 +27,11 @@ const SelectEntity = ({entities, onSelectEntity}) => {
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
         >
-            <Header content='Specify Paranormal Entity' />
+            <Header content='Specify Paranormal Entity'/>
             <Modal.Content>
                     <Segment>
                         <Message warning>If you don't see your spook in this list, please report it to us!</Message>
-
-                        <Card.Group itemsPerRow={2}>
-                            {renderedEntities}
-                        </Card.Group>
+                        <GhostGallery entities={entities} handleClick={handleClick} />
                     </Segment>
             </Modal.Content>
         </Modal>
