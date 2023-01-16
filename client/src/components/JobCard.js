@@ -1,16 +1,19 @@
 import {useState} from "react"
 
+import NewJob from "./NewJob"
+
 import {Card, Header, Label, Modal, Button, Icon} from "semantic-ui-react"
 
-const JobCard = ({job, user, onDelete}) => {
-    const [open, setOpen] = useState(false)
+const JobCard = ({job, user, entities, onDelete}) => {
+    const [openEdit, setOpenEdit] = useState(false)
+    const [openCancel, setOpenCancel] = useState(false)
 
     const handleDelete = () => {
         fetch(`/jobs/${job.id}`, {method: 'DELETE'})
         .then(r => {
             if (r.ok) {
                 onDelete(job.id)
-                setOpen(false)
+                setOpenCancel(false)
             } else {
                 r.json().then(console.error)
             }
@@ -49,17 +52,37 @@ const JobCard = ({job, user, onDelete}) => {
                 <div align="center">
                     <Modal
                         closeIcon
-                        open={open}
+                        open={openEdit}
                         trigger={
-                            <Button animated onClick={() => setOpen(true)}>
+                            <Button color='yellow' animated onClick={() => setOpenEdit(true)}>
+                                <Button.Content visible>Edit Request</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='edit' />
+                                </Button.Content>
+                            </Button>
+                        }
+                        onClose={() => setOpenEdit(false)}
+                        onOpen={() => setOpenEdit(true)}
+                        >
+                        <Header content='Update Service Request' />
+                        <Modal.Content>
+                                <NewJob job={job} entities={entities} setOpenEdit={setOpenEdit} />
+                        </Modal.Content>
+                    </Modal>
+
+                    <Modal
+                        closeIcon
+                        open={openCancel}
+                        trigger={
+                            <Button animated onClick={() => setOpenCancel(true)}>
                                 <Button.Content visible>Cancel Service</Button.Content>
                                 <Button.Content hidden>
                                     <Icon name='cancel' />
                                 </Button.Content>
                             </Button>
                         }
-                        onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
+                        onClose={() => setOpenCancel(false)}
+                        onOpen={() => setOpenCancel(true)}
                         >
                         <Header content='Cancel Service Request' />
                         <Modal.Content>

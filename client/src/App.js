@@ -46,7 +46,7 @@ function App() {
           </Route>
           
           <Route path='/services'>
-            <Services user={user} />
+            <Services user={user} entities={entities} />
           </Route>
 
           <Route path='/newjob'>

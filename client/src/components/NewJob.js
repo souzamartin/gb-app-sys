@@ -1,12 +1,13 @@
-import {useState} from "react"
-import {useHistory} from "react-router-dom"
+import {useState, useEffect} from "react"
+import {useHistory, useLocation} from "react-router-dom"
 
 import SelectEntity from "./SelectEntity"
 
 import {Segment, Header, Form, TextArea, Button, Icon, Label, Message, Divider} from "semantic-ui-react"
 
-const NewJob = ({entities}) => {
+const NewJob = ({entities, job, setOpenEdit}) => {
     const history = useHistory()
+    const location = useLocation()
 
     const [formData, setFormData] = useState({
         location: "",
@@ -17,6 +18,13 @@ const NewJob = ({entities}) => {
 
     const [errors, setErrors] = useState(null)
     const [selectError, setSelectError] = useState(null)
+
+    useEffect(() => {
+        if (job) {
+            setFormData(job)
+            setAssociatedEntities(job.entities)
+        }
+    }, [])
 
     const onSelectEntity = (selectedEntity) => {
         if (!associatedEntities.includes(selectedEntity)) {
@@ -39,30 +47,49 @@ const NewJob = ({entities}) => {
         })
     }
 
+    const handleUpdate = (id) => {
+        fetch(`/jobs/${id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({formData, associatedEntities})
+        })
+        .then(r => {
+            if (r.ok) {
+                setOpenEdit(false)
+            } else {
+                r.json().then(setErrors)
+            }
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
         if (associatedEntities.length > 0) {
-            fetch('/jobs', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({formData, associatedEntities})
-            })
-            .then(r => {
-                if (r.ok) {
-                    history.push('/services')
-                } else {
-                    r.json().then(setErrors)
-                }
-            })
-        } else {
+            if (location.pathname === '/services') {
+                handleUpdate(job.id)
+            } else {
+                fetch('/jobs', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({formData, associatedEntities})
+                })
+                .then(r => {
+                    if (r.ok) {
+                        history.push('/services')
+                    } else {
+                        r.json().then(setErrors)
+                    }
+                })
+            }} else {
             setSelectError("You must select one or more entities")
         }
     }
+    
 
     return (
         <Segment>
-            <Header content='New Service Request' />
+            <Header content='Service Request' />
             <Segment>
                 <Header size='tiny'>Associated Entities</Header>
 
@@ -119,24 +146,23 @@ const NewJob = ({entities}) => {
                     </Form.Field>
 
                     <div align="center">
-                        <Button positive animated type='submit'>
-                            <Button.Content visible>Submit</Button.Content>
+                    {location.pathname === '/newjob' ?
+                            <Button positive animated type='submit'>
+                                <Button.Content visible>Submit</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='arrow circle right' />
+                                </Button.Content>
+                            </Button>
+                    : 
+                        <Button primary animated type='submit'>
+                            <Button.Content visible>Update</Button.Content>
                             <Button.Content hidden>
-                                <Icon name='arrow circle right' />
+                                <Icon name='edit' />
                             </Button.Content>
                         </Button>
-
+                    }
                     </div>
                 </Form>
-
-                {/* <div align="center">
-                    <Button negative animated>
-                        <Button.Content visible>Cancel</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name='x' />
-                        </Button.Content>
-                    </Button>
-                </div> */}
             </Segment>
         </Segment>
     )

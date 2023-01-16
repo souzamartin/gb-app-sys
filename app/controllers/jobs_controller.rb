@@ -19,6 +19,19 @@ class JobsController < ApplicationController
         end
     end
 
+    def update
+        job = Job.find(params[:id])
+        job.update!(
+            location: params[:formData][:location],
+            notes: params[:formData][:notes]
+        )
+
+        job.job_entities.destroy_all
+        params[:associatedEntities].each do |entity|
+            JobEntity.create(job_id: job.id, entity_id: entity[:id])
+        end
+    end
+
     def destroy
         Job.find(params[:id]).destroy
         head :no_content

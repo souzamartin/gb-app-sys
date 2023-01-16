@@ -5,7 +5,7 @@ import JobCard from "./JobCard"
 
 import {Segment, Header, Button, Icon, Divider, Card, Message} from "semantic-ui-react"
 
-const Services = ({user}) => {
+const Services = ({user, entities}) => {
     const [jobs, setJobs] = useState([])
     useEffect(() => {
         if (user) {
@@ -31,7 +31,15 @@ const Services = ({user}) => {
         setJobs(updatedJobs)
     }
 
-    const renderedJobs = jobs.map(job => <JobCard key={job.id} job={job} user={user} onDelete={onDelete} />)
+    const renderedJobs = jobs.map(job =>
+        <JobCard
+            key={job.id}
+            job={job}
+            user={user}
+            entities={entities}
+            onDelete={onDelete} 
+        />
+    )
 
     return (
         <Segment>
