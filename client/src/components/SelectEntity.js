@@ -1,4 +1,5 @@
 import {useState} from "react"
+import {Link} from "react-router-dom"
 
 import GhostGallery from "./GhostGallery"
 
@@ -30,7 +31,9 @@ const SelectEntity = ({entities, onSelectEntity}) => {
             <Header content='Specify Paranormal Entity'/>
             <Modal.Content>
                     <Segment>
-                        <Message warning>If you don't see your spook in this list, please report it to us!</Message>
+                        <Message warning>
+                            If you don't see your spook in this list, {<Link to='/entities'>please report it to us!</Link>}
+                        </Message>
                         <GhostGallery entities={entities} handleClick={handleClick} />
                     </Segment>
             </Modal.Content>

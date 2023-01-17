@@ -1,4 +1,5 @@
 import {useState} from "react"
+import {Link} from "react-router-dom"
 
 import {Button, Icon, Modal, Header, Segment, Form, TextArea, Message} from "semantic-ui-react"
 
@@ -143,7 +144,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                             </Form>
                         </Segment>
                     :
-                        <p>Please log in or create an account.</p>
+                        <p>Please {<Link to='/account'>log in or create an account.</Link>}</p>
                     }
                 </Modal.Content>
             </Modal>

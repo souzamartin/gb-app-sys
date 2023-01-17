@@ -80,7 +80,9 @@ const Services = ({user, entities}) => {
                     {renderedJobs}
                 </Card.Group>
             :
-                <Message warning>Please log in or create an account to view and request services.</Message>
+                <Message warning>
+                    Please {<Link to='/account'>log in or create an account</Link>} to view and request services.
+                </Message>
             }
         </Segment>
     )
