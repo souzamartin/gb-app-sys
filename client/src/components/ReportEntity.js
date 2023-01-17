@@ -33,6 +33,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
         e.preventDefault()
 
         const entityData = new FormData()
+        // Credit to Ignas Butautas for this handy loop
         for (const property in formData) {
             entityData.append(
               property, formData[property]
@@ -41,7 +42,6 @@ const ReportEntity = ({user, entities, setEntities}) => {
         
         fetch('/entities', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
             body: entityData
         })
         .then(r => {
