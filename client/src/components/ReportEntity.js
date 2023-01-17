@@ -12,7 +12,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
         classification: undefined,
         description: "",
         notes: undefined,
-        image: ""
+        image: null
     })
 
     const handleInput = (e) => {
@@ -22,13 +22,27 @@ const ReportEntity = ({user, entities, setEntities}) => {
         })
     }
 
+    const handleImage = (e) => {
+        setFormData({
+            ...formData,
+            image: e.target.files[0]
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        const entityData = new FormData()
+        // Credit to Ignas Butautas for this handy loop
+        for (const property in formData) {
+            entityData.append(
+              property, formData[property]
+            )
+        }
         
         fetch('/entities', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(formData)
+            body: entityData
         })
         .then(r => {
             if (r.ok) {
@@ -109,9 +123,12 @@ const ReportEntity = ({user, entities, setEntities}) => {
                                 <Form.Field>
                                     <label>Image</label>
                                     <input
-                                        name='image'
-                                        value={formData.image}
-                                        onChange={handleInput}
+                                        type='file'
+                                        accept='image/*'
+                                        multiple={false}
+                                        // name='image'
+                                        // value={formData.image}
+                                        onChange={handleImage}
                                     />
                                 </Form.Field>
                     

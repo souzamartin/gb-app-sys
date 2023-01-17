@@ -15,9 +15,9 @@ function App() {
   const [entities, setEntities] = useState([])
 
   useEffect(() => {
-      fetch('/entities')
-      .then(r => r.json())
-      .then(setEntities)
+    fetch('/entities')
+    .then(r => r.json())
+    .then(setEntities)
   }, [])
 
   useEffect(() => {

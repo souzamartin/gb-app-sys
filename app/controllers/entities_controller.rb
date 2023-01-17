@@ -6,7 +6,8 @@ class EntitiesController < ApplicationController
     end
 
     def create
-        render json: Entity.create!(entity_params), status: :created
+        new_entity = Entity.create!(entity_params)
+        render json: new_entity, status: :created
     end
 
     private
