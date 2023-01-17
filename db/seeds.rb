@@ -50,84 +50,84 @@ puts "Complete\n "
 
 puts "Creating paranormal entities..."
 
-slimer = Entity.create(
+slimer = Entity.create!(
     name: "Slimer",
     classification: "Class 5 full roaming vapor",
     description: "Ugly little spud.",
-    notes: "Focused, non-terminal, repeating phantasm"
-)
-slimer.image.attach(
-    io: File.open(Rails.root + "db/seed_images/slimer.png"),
-    filename: "slimer.png",
-    content_type: "image/png"
+    notes: "Focused, non-terminal, repeating phantasm",
+    image: {
+            io: File.open(Rails.root + "db/seed_images/slimer.png"),
+            filename: "slimer.png",
+            content_type: "image/png"
+        }
 )
 
 zuul = Entity.create(
     name: "Zuul",
     description: "Terror dog.",
-    notes: "Gatekeeper of Gozer"
-)
-zuul.image.attach(
-    io: File.open(Rails.root + "db/seed_images/zuul.jpg"),
-    filename: "zuul.jpg",
-    content_type: "image/jpeg"
+    notes: "Gatekeeper of Gozer",
+    image: {
+        io: File.open(Rails.root + "db/seed_images/zuul.jpg"),
+        filename: "zuul.jpg",
+        content_type: "image/jpeg"
+    }
 )
 
 vinz = Entity.create(
     name: "Vinz Clortho",
     description: "Terror dog.",
-    notes: "Keymaster of Gozer"
-)
-vinz.image.attach(
-    io: File.open(Rails.root + "db/seed_images/vinz.png"),
-    filename: "vinz.png",
-    content_type: "image/png"
+    notes: "Keymaster of Gozer",
+    image: {
+        io: File.open(Rails.root + "db/seed_images/vinz.png"),
+        filename: "vinz.png",
+        content_type: "image/png"
+    }
 )
 
 eleanor = Entity.create(
     name: "Library Ghost",
     classification: "Class 4",
     description: "Ghostly librarian, shushes patrons rudely.",
-    notes: "Free-roaming, vaporous, full-torso apparition"
-)
-eleanor.image.attach(
-    io: File.open(Rails.root + "db/seed_images/library.jpg"),
-    filename: "library.jpg",
-    content_type: "image/jpeg"
+    notes: "Free-roaming, vaporous, full-torso apparition",
+    image: {
+        io: File.open(Rails.root + "db/seed_images/library.jpg"),
+        filename: "library.jpg",
+        content_type: "image/jpeg"
+    }
 )
 
 kymberly = Entity.create(
     name: "Dream Ghost",
     classification: "Class 4 anchored noncorporeal",
-    description: "An unusually friendly ghost."
-)
-kymberly.image.attach(
-    io: File.open(Rails.root + "db/seed_images/dream.png"),
-    filename: "dream.png",
-    content_type: "image/png"
+    description: "An unusually friendly ghost.",
+    image: {
+        io: File.open(Rails.root + "db/seed_images/dream.png"),
+        filename: "dream.png",
+        content_type: "image/png"
+    }
 )
 
 cabby = Entity.create(
     name: "Zombie Taxi Driver",
     classification: "Class 3 anonymous haunting",
     description: "Possesses and transmogrifies taxi drivers, making their
-        driving dangerous and erratic—moreso than usual."
-)
-cabby.image.attach(
-    io: File.open(Rails.root + "db/seed_images/taxi.png"),
-    filename: "taxi.png",
-    content_type: "image/png"
+        driving dangerous and erratic—moreso than usual.",
+    image: {
+        io: File.open(Rails.root + "db/seed_images/taxi.png"),
+        filename: "taxi.png",
+        content_type: "image/png"
+    }
 )
 
 subway = Entity.create(
     name: "Subway Ghost",
     description: "Subterranean specter. Passes through every turnstile.",
-    notes: "Wanted for fare evasion"
-)
-subway.image.attach(
-    io: File.open(Rails.root + "db/seed_images/subway.png"),
-    filename: "subway.png",
-    content_type: "image/png"
+    notes: "Wanted for fare evasion",
+    image: {
+        io: File.open(Rails.root + "db/seed_images/subway.png"),
+        filename: "subway.png",
+        content_type: "image/png"
+    }
 )
 
 puts "Complete\n "

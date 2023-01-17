@@ -9,9 +9,9 @@ const ReportEntity = ({user, entities, setEntities}) => {
 
     const [formData, setFormData] = useState({
         name: "",
-        classification: undefined,
+        classification: "Unknown",
         description: "",
-        notes: undefined,
+        notes: "None",
         image: null
     })
 
@@ -84,7 +84,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                     {user ?
                         <Segment>
                             <Form onSubmit={handleSubmit}>
-                                <Form.Field>
+                                <Form.Field required>
                                     <label>Name</label>
                                     <input
                                         name='name'
@@ -102,7 +102,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                                     />
                                 </Form.Field>
 
-                                <Form.Field>
+                                <Form.Field required>
                                     <label>Description</label>
                                     <TextArea
                                         name='description'
@@ -112,7 +112,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                                 </Form.Field>
 
                                 <Form.Field>
-                                    <label>Additional Notes</label>
+                                    <label>Additional Notes (optional)</label>
                                     <TextArea
                                         name='notes'
                                         value={formData.notes}
@@ -120,7 +120,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
                                     />
                                 </Form.Field>
 
-                                <Form.Field>
+                                <Form.Field required>
                                     <label>Image</label>
                                     <input
                                         type='file'

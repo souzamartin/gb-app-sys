@@ -34,7 +34,7 @@ const UserForm = ({onSubmit, user}) => {
     return (
         <Segment>
             <Form onSubmit={handleSubmit}>
-                <Form.Field>
+                <Form.Field required>
                     <label>First Name</label>
                     <input
                         name='firstname'
@@ -43,7 +43,7 @@ const UserForm = ({onSubmit, user}) => {
                     />
                 </Form.Field>
 
-                <Form.Field>
+                <Form.Field required>
                     <label>Last Name</label>
                     <input
                         name='lastname'
@@ -52,7 +52,7 @@ const UserForm = ({onSubmit, user}) => {
                     />
                 </Form.Field>
 
-                <Form.Field>
+                <Form.Field required>
                     <label>E-Mail Address</label>
                     <input
                         name='email'
@@ -61,7 +61,7 @@ const UserForm = ({onSubmit, user}) => {
                     />
                 </Form.Field>
 
-                <Form.Field>
+                <Form.Field required>
                     <label>Password</label>
                     <input
                         type='password'
@@ -71,7 +71,7 @@ const UserForm = ({onSubmit, user}) => {
                     />
                 </Form.Field>
 
-                <Form.Field>
+                <Form.Field required>
                     <label>Confirm Password</label>
                     <input
                         type='password'

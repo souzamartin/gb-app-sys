@@ -126,7 +126,7 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
                 : null}
                 
                 <Form onSubmit={handleSubmit}>
-                    <Form.Field>
+                    <Form.Field required>
                         <label>Location</label>
                         <input
                             name='location'
