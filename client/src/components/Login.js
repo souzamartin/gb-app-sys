@@ -68,11 +68,11 @@ const Login = ({setUser}) => {
                             />
 
                     </Form.Field>
-                        <div align="center">
+                        <div align='center'>
                             <Button primary animated type='submit'>
                                 <Button.Content visible>Log In</Button.Content>
                                 <Button.Content hidden>
-                                    <Icon name='sign-in' />
+                                    <Icon name='sign-in'/>
                                 </Button.Content>
                             </Button>
                         </div>

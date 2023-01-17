@@ -1,11 +1,11 @@
-import {useState} from "react"
+import {useState} from 'react'
 
-import EntityCard from "./EntityCard"
+import EntityCard from './EntityCard'
 
-import {Divider, Input, Card} from "semantic-ui-react"
+import {Divider, Input, Card} from 'semantic-ui-react'
 
 const GhostGallery = ({entities, handleClick}) => {
-    const [searchText, setSearchText] = useState("")
+    const [searchText, setSearchText] = useState('')
 
     const filteredEntities = entities.filter(entity =>
         entity.name.toLowerCase().includes(searchText.toLowerCase())

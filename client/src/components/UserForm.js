@@ -1,6 +1,6 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect} from 'react'
 
-import {Segment, Form, Button, Icon} from "semantic-ui-react"
+import {Segment, Form, Button, Icon} from 'semantic-ui-react'
 
 const UserForm = ({onSubmit, user}) => {
     const initialFormState = {
@@ -100,11 +100,11 @@ const UserForm = ({onSubmit, user}) => {
                     />
                 </Form.Field>
                 
-                <div align="center">
+                <div align='center'>
                     <Button positive animated type='submit'>
                         <Button.Content visible>Submit</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='signup' />
+                            <Icon name='signup'/>
                         </Button.Content>
                     </Button>
                 </div>

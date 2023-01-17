@@ -1,16 +1,16 @@
-import {useState, useEffect} from "react"
-import {useHistory, useLocation} from "react-router-dom"
+import {useState, useEffect} from 'react'
+import {useHistory, useLocation} from 'react-router-dom'
 
-import SelectEntity from "./SelectEntity"
+import SelectEntity from './SelectEntity'
 
-import {Segment, Header, Form, TextArea, Button, Icon, Label, Message, Divider} from "semantic-ui-react"
+import {Segment, Header, Form, TextArea, Button, Icon, Label, Message, Divider} from 'semantic-ui-react'
 
 const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
     const history = useHistory()
     const location = useLocation()
 
     const [formData, setFormData] = useState({
-        location: "",
+        location: '',
         notes: undefined
     })
 
@@ -31,13 +31,13 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
             setAssociatedEntities([...associatedEntities, selectedEntity])
             setSelectError(null)
         } else {
-            setSelectError("That entity is already selected")
+            setSelectError('That entity is already selected')
         }
     }
 
     const handleClear = () => {
         setAssociatedEntities([])
-        setSelectError("")
+        setSelectError('')
     }
 
     const handleInput = (e) => {
@@ -83,22 +83,22 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
                     }
                 })
             }} else {
-            setSelectError("You must select one or more entities")
+            setSelectError('You must select one or more entities')
         }
     }
     
 
     return (
         <Segment>
-            <Header content='Service Request' />
+            <Header content='Service Request'/>
             <Segment>
                 <Header size='tiny'>Associated Entities</Header>
 
                 {associatedEntities.length > 0 ?
-                    <Label.Group size="large">
+                    <Label.Group size='large'>
                         {associatedEntities.map(entity => 
                         <Label key={entity.id}>
-                            <img className="ghost-avatar" src={entity.image} alt={entity.name} />
+                            <img className='ghost-avatar' src={entity.image} alt={entity.name} />
                             {entity.name.toUpperCase()}
                         </Label>)}
                     </Label.Group>
@@ -110,10 +110,10 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
                 
                 <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
 
-                <Button animated onClick={handleClear} >
+                <Button animated onClick={handleClear}>
                         <Button.Content visible>Clear Entities</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='undo' />
+                            <Icon name='undo'/>
                         </Button.Content>
                 </Button>
 
@@ -146,19 +146,19 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
                         />
                     </Form.Field>
 
-                    <div align="center">
+                    <div align='center'>
                     {location.pathname === '/newjob' ?
                             <Button positive animated type='submit'>
                                 <Button.Content visible>Submit</Button.Content>
                                 <Button.Content hidden>
-                                    <Icon name='arrow circle right' />
+                                    <Icon name='arrow circle right'/>
                                 </Button.Content>
                             </Button>
                     : 
                         <Button primary animated type='submit'>
                             <Button.Content visible>Update</Button.Content>
                             <Button.Content hidden>
-                                <Icon name='edit' />
+                                <Icon name='edit'/>
                             </Button.Content>
                         </Button>
                     }

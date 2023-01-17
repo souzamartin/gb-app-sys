@@ -1,6 +1,6 @@
-import {useHistory} from "react-router-dom"
+import {useHistory} from 'react-router-dom'
 
-import {Button, Icon} from "semantic-ui-react"
+import {Button, Icon} from 'semantic-ui-react'
 
 const Logout = ({user, setUser}) => {
     const history = useHistory()
@@ -20,7 +20,7 @@ const Logout = ({user, setUser}) => {
     return (
         <Button animated onClick={handleLogout}>
             <Button.Content visible >
-                <Icon name='log out' />
+                <Icon name='log out'/>
             </Button.Content>
             <Button.Content hidden>
                 Log Out

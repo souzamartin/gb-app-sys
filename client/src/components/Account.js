@@ -46,12 +46,12 @@ const Account = ({user, setUser}) => {
     }
 
     const handleDelete = () => {
-        if (window.confirm("Are you sure you want to delete your account?")) {
-          fetch(`/users/${user.id}`, {method: "DELETE"})
+        if (window.confirm('Are you sure you want to delete your account?')) {
+          fetch(`/users/${user.id}`, {method: 'DELETE'})
           .then((r) => {
             if (r.ok) {
               setUser(null)
-              history.push("/")
+              history.push('/')
             }
           })
         }
@@ -115,7 +115,7 @@ const Account = ({user, setUser}) => {
                         onClose={() => setOpen(false)}
                         onOpen={() => setOpen(true)}
                     >
-                        <Header content='Edit Account Information' />
+                        <Header content='Edit Account Information'/>
                         <Modal.Content>
                             {errors ?
                             <Message negative>
@@ -132,7 +132,7 @@ const Account = ({user, setUser}) => {
                         <Button negative animated onClick={handleDelete}>
                             <Button.Content visible>Delete Account</Button.Content>
                             <Button.Content hidden>
-                                <Icon name='user delete' />
+                                <Icon name='user delete'/>
                             </Button.Content>
                         </Button>
                     </div>

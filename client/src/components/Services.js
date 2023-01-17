@@ -1,16 +1,16 @@
-import {useState, useEffect} from "react"
-import {Link} from "react-router-dom"
+import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 
-import JobCard from "./JobCard"
+import JobCard from './JobCard'
 
-import {Segment, Header, Button, Icon, Divider, Card, Message} from "semantic-ui-react"
+import {Segment, Header, Button, Icon, Divider, Card, Message} from 'semantic-ui-react'
 
 const Services = ({user, entities}) => {
     const [jobs, setJobs] = useState([])
 
     useEffect(() => {
         if (user) {
-            fetch("/myjobs")
+            fetch('/myjobs')
             .then(r => {
                 if (r.ok) {
                     r.json().then(setJobs)
@@ -53,11 +53,11 @@ const Services = ({user, entities}) => {
             <Header>Your Service Requests</Header>
 
             {user ?
-                <div align="center">
-                    <Button positive animated as={Link} to="/newjob">
+                <div align='center'>
+                    <Button positive animated as={Link} to='/newjob'>
                         <Button.Content visible>New Service Request</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='add' />
+                            <Icon name='add'/>
                         </Button.Content>
                     </Button>
 
@@ -65,7 +65,7 @@ const Services = ({user, entities}) => {
                         <Button primary animated onClick={getAllJobs}>
                             <Button.Content visible>Show All Jobs</Button.Content>
                             <Button.Content hidden>
-                                <Icon name='book' />
+                                <Icon name='book'/>
                             </Button.Content>
                         </Button>
                     : null}

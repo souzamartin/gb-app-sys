@@ -56,7 +56,7 @@ slimer = Entity.create!(
     description: "Ugly little spud.",
     notes: "Focused, non-terminal, repeating phantasm",
     image: {
-            io: File.open(Rails.root + "db/seed_images/slimer.png"),
+            io: File.open("db/seed_images/slimer.png"),
             filename: "slimer.png",
             content_type: "image/png"
         }
@@ -67,7 +67,7 @@ zuul = Entity.create(
     description: "Terror dog.",
     notes: "Gatekeeper of Gozer",
     image: {
-        io: File.open(Rails.root + "db/seed_images/zuul.jpg"),
+        io: File.open("db/seed_images/zuul.jpg"),
         filename: "zuul.jpg",
         content_type: "image/jpeg"
     }
@@ -78,7 +78,7 @@ vinz = Entity.create(
     description: "Terror dog.",
     notes: "Keymaster of Gozer",
     image: {
-        io: File.open(Rails.root + "db/seed_images/vinz.png"),
+        io: File.open("db/seed_images/vinz.png"),
         filename: "vinz.png",
         content_type: "image/png"
     }
@@ -90,7 +90,7 @@ eleanor = Entity.create(
     description: "Ghostly librarian, shushes patrons rudely.",
     notes: "Free-roaming, vaporous, full-torso apparition",
     image: {
-        io: File.open(Rails.root + "db/seed_images/library.jpg"),
+        io: File.open("db/seed_images/library.jpg"),
         filename: "library.jpg",
         content_type: "image/jpeg"
     }
@@ -101,7 +101,7 @@ kymberly = Entity.create(
     classification: "Class 4 anchored noncorporeal",
     description: "An unusually friendly ghost.",
     image: {
-        io: File.open(Rails.root + "db/seed_images/dream.png"),
+        io: File.open("db/seed_images/dream.png"),
         filename: "dream.png",
         content_type: "image/png"
     }
@@ -110,10 +110,10 @@ kymberly = Entity.create(
 cabby = Entity.create(
     name: "Zombie Taxi Driver",
     classification: "Class 3 anonymous haunting",
-    description: "Possesses and transmogrifies taxi drivers, making their
-        driving dangerous and erratic—moreso than usual.",
+    description: "Possesses and transmogrifies cabbies, making their
+        driving more dangerous and erratic than usual.",
     image: {
-        io: File.open(Rails.root + "db/seed_images/taxi.png"),
+        io: File.open("db/seed_images/taxi.png"),
         filename: "taxi.png",
         content_type: "image/png"
     }
@@ -121,10 +121,10 @@ cabby = Entity.create(
 
 subway = Entity.create(
     name: "Subway Ghost",
-    description: "Subterranean specter. Passes through every turnstile.",
+    description: "Subterranean specter. Passes right through every turnstile.",
     notes: "Wanted for fare evasion",
     image: {
-        io: File.open(Rails.root + "db/seed_images/subway.png"),
+        io: File.open("db/seed_images/subway.png"),
         filename: "subway.png",
         content_type: "image/png"
     }

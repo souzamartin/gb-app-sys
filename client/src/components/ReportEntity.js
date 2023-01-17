@@ -1,7 +1,7 @@
-import {useState} from "react"
-import {Link} from "react-router-dom"
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
 
-import {Button, Icon, Modal, Header, Segment, Form, TextArea, Message} from "semantic-ui-react"
+import {Button, Icon, Modal, Header, Segment, Form, TextArea, Message} from 'semantic-ui-react'
 
 const ReportEntity = ({user, entities, setEntities}) => {
     const [open, setOpen] = useState(false)
@@ -9,10 +9,10 @@ const ReportEntity = ({user, entities, setEntities}) => {
     const [errors, setErrors] = useState(null)
 
     const [formData, setFormData] = useState({
-        name: "",
-        classification: "Unknown",
-        description: "",
-        notes: "None",
+        name: '',
+        classification: 'Unknown',
+        description: '',
+        notes: 'None',
         image: null
     })
 
@@ -59,7 +59,7 @@ const ReportEntity = ({user, entities, setEntities}) => {
     }
 
     return (
-        <div align="center">
+        <div align='center'>
             <Modal
                 closeIcon
                 open={open}
@@ -67,14 +67,14 @@ const ReportEntity = ({user, entities, setEntities}) => {
                     <Button color='violet' animated onClick={() => setOpen(true)}>
                         <Button.Content visible>Report New Entity</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='eye' />
+                            <Icon name='eye'/>
                         </Button.Content>
                     </Button>
                 }
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
             >
-                <Header content='Report New Paranormal Entity' />
+                <Header content='Report New Paranormal Entity'/>
                 <Modal.Content>
                     {errors ?
                         <Message negative>
@@ -127,17 +127,15 @@ const ReportEntity = ({user, entities, setEntities}) => {
                                         type='file'
                                         accept='image/*'
                                         multiple={false}
-                                        // name='image'
-                                        // value={formData.image}
                                         onChange={handleImage}
                                     />
                                 </Form.Field>
                     
-                                <div align="center">
+                                <div align='center'>
                                     <Button positive animated type='submit'>
                                         <Button.Content visible>Submit</Button.Content>
                                         <Button.Content hidden>
-                                            <Icon name='arrow circle right' />
+                                            <Icon name='arrow circle right'/>
                                         </Button.Content>
                                     </Button>
                                 </div>

@@ -1,6 +1,6 @@
-import {useLocation} from "react-router-dom"
+import {useLocation} from 'react-router-dom'
 
-import {Card, Image, Header, Button, Icon} from "semantic-ui-react"
+import {Card, Image, Header, Button, Icon} from 'semantic-ui-react'
 
 const EntityCard = ({entity, handleClick}) => {
     const location = useLocation()
@@ -29,7 +29,7 @@ const EntityCard = ({entity, handleClick}) => {
                     //     </Button.Content>
                     // </Button>
             : 
-                <Card.Content extra textAlign="center">
+                <Card.Content extra textAlign='center'>
                     <Button color='violet' animated onClick={() => handleClick(entity)}>
                         <Button.Content visible>Select Entity</Button.Content>
                         <Button.Content hidden>

@@ -1,7 +1,7 @@
-import ReportEntity from "./ReportEntity"
-import GhostGallery from "./GhostGallery"
+import ReportEntity from './ReportEntity'
+import GhostGallery from './GhostGallery'
 
-import {Segment, Header} from "semantic-ui-react"
+import {Segment, Header} from 'semantic-ui-react'
 
 const Entities = ({user, entities, setEntities}) => {
 

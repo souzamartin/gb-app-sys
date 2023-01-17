@@ -1,9 +1,9 @@
-import {useState} from "react"
-import {Link} from "react-router-dom"
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
 
-import GhostGallery from "./GhostGallery"
+import GhostGallery from './GhostGallery'
 
-import {Modal, Button, Icon, Header, Segment, Message} from "semantic-ui-react"
+import {Modal, Button, Icon, Header, Segment, Message} from 'semantic-ui-react'
 
 const SelectEntity = ({entities, onSelectEntity}) => {
     const [open, setOpen] = useState(false)
@@ -21,7 +21,7 @@ const SelectEntity = ({entities, onSelectEntity}) => {
                 <Button color='violet' animated onClick={() => setOpen(true)}>
                     <Button.Content visible>Add Entity</Button.Content>
                     <Button.Content hidden>
-                        <Icon name='add' />
+                        <Icon name='add'/>
                     </Button.Content>
                 </Button>
             }

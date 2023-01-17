@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ghostbusters Appointment System
+Phase 5 Capstone Project by Martin Souza
+Software Engineering 10/10/22 East cohort
+Flatiron School
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+GHOSTBUSTERS, the Ghostbusters logo, and all related characters, names, and images
+are trademarked and/or copyright Columbia Pictures Industries, Inc.

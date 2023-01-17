@@ -1,8 +1,8 @@
-import {useState} from "react"
+import {useState} from 'react'
 
-import NewJob from "./NewJob"
+import NewJob from './NewJob'
 
-import {Card, Header, Label, Modal, Button, Icon} from "semantic-ui-react"
+import {Card, Header, Label, Modal, Button, Icon} from 'semantic-ui-react'
 
 const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
     const [openEdit, setOpenEdit] = useState(false)
@@ -34,22 +34,22 @@ const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
                 <p>{job.location}</p>
 
                 <Header sub>Notes</Header>
-                {job.notes ? <p>{job.notes}</p> : "None"}
+                {job.notes ? <p>{job.notes}</p> : 'None'}
             </Card.Content>
 
             <Card.Content extra>
                 <Header size='tiny'>Associated Entities</Header>
-                <Label.Group size="large">
+                <Label.Group size='large'>
                     {job.entities.map(entity => 
                         <Label key={entity.id}>
-                            <img className="ghost-avatar" src={entity.image} alt={entity.name} />
+                            <img className='ghost-avatar' src={entity.image} alt={entity.name} />
                             {entity.name.toUpperCase()}
                         </Label>)}
                 </Label.Group>
             </Card.Content>
 
             <Card.Content extra>
-                <div align="center">
+                <div align='center'>
                     <Modal
                         closeIcon
                         open={openEdit}
@@ -64,7 +64,7 @@ const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
                         onClose={() => setOpenEdit(false)}
                         onOpen={() => setOpenEdit(true)}
                         >
-                        <Header content='Update Service Request' />
+                        <Header content='Update Service Request'/>
                         <Modal.Content>
                                 <NewJob
                                     job={job}
@@ -82,14 +82,14 @@ const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
                             <Button animated onClick={() => setOpenCancel(true)}>
                                 <Button.Content visible>Cancel Service</Button.Content>
                                 <Button.Content hidden>
-                                    <Icon name='cancel' />
+                                    <Icon name='cancel'/>
                                 </Button.Content>
                             </Button>
                         }
                         onClose={() => setOpenCancel(false)}
                         onOpen={() => setOpenCancel(true)}
                         >
-                        <Header content='Cancel Service Request' />
+                        <Header content='Cancel Service Request'/>
                         <Modal.Content>
                                 <p>Are you sure you want to cancel this service request?</p>
                         </Modal.Content>
@@ -97,7 +97,7 @@ const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
                         <Button negative animated onClick={handleDelete}>
                                 <Button.Content visible>Cancel Service</Button.Content>
                                 <Button.Content hidden>
-                                    <Icon name='cancel' />
+                                    <Icon name='cancel'/>
                                 </Button.Content>
                             </Button>
                         </Modal.Actions>
