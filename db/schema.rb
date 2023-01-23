@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_152907) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_23_211328) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -68,6 +68,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_152907) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "rating"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "password_digest"
     t.string "firstname"
@@ -85,4 +94,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_152907) do
   add_foreign_key "job_entities", "entities"
   add_foreign_key "job_entities", "jobs"
   add_foreign_key "jobs", "users"
+  add_foreign_key "reviews", "users"
 end
