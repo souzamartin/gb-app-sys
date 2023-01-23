@@ -62,7 +62,7 @@ const UserForm = ({onSubmit, user}) => {
                 </Form.Field>
 
                 <Form.Field required>
-                    <label>Password</label>
+                    <label>{user ? 'Change or Confirm Password' : 'Password'}</label>
                     <input
                         type='password'
                         name='password'

@@ -11,7 +11,8 @@ const Account = ({user, setUser}) => {
 
     const [errors, setErrors] = useState(null)
 
-    const [open, setOpen] = useState(false)
+    const [openEdit, setOpenEdit] = useState(false)
+    const [openDelete, setOpenDelete] = useState(false)
 
     const [activeIndex, setActiveIndex] = useState(-1)
 
@@ -40,7 +41,7 @@ const Account = ({user, setUser}) => {
         .then(r => {
             if (r.ok) {
                 r.json().then(setUser)
-                setOpen(false)
+                setOpenEdit(false)
             } else {
                 r.json().then(setErrors)
             }
@@ -48,15 +49,13 @@ const Account = ({user, setUser}) => {
     }
 
     const handleDelete = () => {
-        if (window.confirm('Are you sure you want to delete your account?')) {
-          fetch(`/users/${user.id}`, {method: 'DELETE'})
-          .then((r) => {
+        fetch(`/users/${user.id}`, {method: 'DELETE'})
+        .then((r) => {
             if (r.ok) {
-              setUser(null)
-              history.push('/')
+                setUser(null)
+                history.push('/')
             }
-          })
-        }
+        })
     }
 
     const handleClick = (index) => {
@@ -110,10 +109,10 @@ const Account = ({user, setUser}) => {
 
                     <Modal
                         closeIcon
-                        open={open}
+                        open={openEdit}
                         trigger={
                             <div align='center'>
-                                <Button animated onClick={() => setOpen(true)}>
+                                <Button animated onClick={() => setOpenEdit(true)}>
                                     <Button.Content visible>Edit Account</Button.Content>
                                     <Button.Content hidden>
                                         <Icon name='edit' />
@@ -121,8 +120,8 @@ const Account = ({user, setUser}) => {
                                 </Button>
                             </div>
                         }
-                        onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
+                        onClose={() => setOpenEdit(false)}
+                        onOpen={() => setOpenEdit(true)}
                     >
                         <Header content='Edit Account Information'/>
                         <Modal.Content>
@@ -137,14 +136,41 @@ const Account = ({user, setUser}) => {
 
                     <Divider />
 
-                    <div align='center'>
-                        <Button negative animated onClick={handleDelete}>
-                            <Button.Content visible>Delete Account</Button.Content>
-                            <Button.Content hidden>
-                                <Icon name='user delete'/>
-                            </Button.Content>
-                        </Button>
-                    </div>
+                    <Modal
+                        closeIcon
+                        open={openDelete}
+                        trigger={
+                            <div align='center'>
+                                <Button negative animated>
+                                    <Button.Content visible>Delete Account</Button.Content>
+                                    <Button.Content hidden>
+                                        <Icon name='user delete'/>
+                                    </Button.Content>
+                                </Button>
+                            </div>
+                        }
+                        onClose={() => setOpenDelete(false)}
+                        onOpen={() => setOpenDelete(true)}
+                    >
+                        <Header content='Delete Account'/>
+                        <Modal.Content>
+                            Are you sure you want to delete your account?
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Button animated onClick={() => setOpenDelete(false)}>
+                                <Button.Content visible>Cancel</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='cancel'/>
+                                </Button.Content>
+                            </Button>
+                            <Button negative animated onClick={handleDelete}>
+                                <Button.Content visible>Delete Account</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='user delete'/>
+                                </Button.Content>
+                            </Button>
+                        </Modal.Actions>
+                    </Modal>
                 </>
             :
                 <Segment>
