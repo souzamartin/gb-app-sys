@@ -69,43 +69,41 @@ const Account = ({user, setUser}) => {
     return (
         <>
             {user ?
-                <>
+                <Segment>
                     <Header size='medium'>Account Details</Header>
-                    <Segment>
-                        <List size='large'>
-                            <List.Item>
-                                <Icon name='user' />
-                                <List.Content>
-                                    <List.Header>Name</List.Header>
-                                    {`${user.firstname} ${user.lastname}`}
-                                </List.Content>
-                            </List.Item>
+                    <List size='large'>
+                        <List.Item>
+                            <Icon name='user' />
+                            <List.Content>
+                                <List.Header>Name</List.Header>
+                                {`${user.firstname} ${user.lastname}`}
+                            </List.Content>
+                        </List.Item>
 
-                            <List.Item>
-                                <Icon name='mail' />
-                                <List.Content>
-                                    <List.Header>E-Mail Address</List.Header>
-                                    {user.email}
-                                </List.Content>
-                            </List.Item>
+                        <List.Item>
+                            <Icon name='mail' />
+                            <List.Content>
+                                <List.Header>E-Mail Address</List.Header>
+                                {user.email}
+                            </List.Content>
+                        </List.Item>
 
-                            <List.Item>
-                                <Icon name='phone' />
-                                <List.Content>
-                                    <List.Header>Telephone</List.Header>
-                                    {user.phone}
-                                </List.Content>
-                            </List.Item>
-                            
-                            <List.Item>
-                                <Icon name='home' />
-                                <List.Content>
-                                    <List.Header>Address</List.Header>
-                                    {user.address}
-                                </List.Content>
-                            </List.Item>
-                        </List>
-                    </Segment>
+                        <List.Item>
+                            <Icon name='phone' />
+                            <List.Content>
+                                <List.Header>Telephone</List.Header>
+                                {user.phone}
+                            </List.Content>
+                        </List.Item>
+                        
+                        <List.Item>
+                            <Icon name='home' />
+                            <List.Content>
+                                <List.Header>Address</List.Header>
+                                {user.address}
+                            </List.Content>
+                        </List.Item>
+                    </List>
 
                     <Modal
                         closeIcon
@@ -171,7 +169,7 @@ const Account = ({user, setUser}) => {
                             </Button>
                         </Modal.Actions>
                     </Modal>
-                </>
+                </Segment>
             :
                 <Segment>
                     <Header size='medium'>Please log in or create an account</Header>

@@ -1,8 +1,8 @@
 class Entity < ApplicationRecord
-    has_one_attached :image
-    
     has_many :job_entities, dependent: :destroy
     has_many :jobs, through: :job_entities
+    
+    has_one_attached :image
 
     validates_presence_of :name, :description
     validates :name, uniqueness: true
