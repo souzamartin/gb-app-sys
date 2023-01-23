@@ -3,6 +3,7 @@ puts "Deleting previous records..."
 User.destroy_all
 Entity.destroy_all
 Job.destroy_all
+# Review.destroy_all
 
 puts "Complete\n "
 
@@ -44,6 +45,27 @@ mike = User.create(
     password: "ballroom",
     phone: 2125559876,
     address: "417 5th Avenue, New York, NY 10016",
+)
+
+bob = User.create(
+    firstname: "Bob",
+    lastname: "Josephson",
+    email: "jo-bob@fakemail.com",
+    password: "password"
+)
+
+jane = User.create(
+    firstname: "Jane",
+    lastname: "Doe",
+    email: "janedoe@fakemail.com",
+    password: "password"
+)
+
+sally = User.create(
+    firstname: "Sally",
+    lastname: "Sanchez",
+    email: "sally4th@fakemail.com",
+    password: "password"
 )
 
 puts "Complete\n "
@@ -163,5 +185,9 @@ JobEntity.create(job_id: j3.id, entity_id: zuul.id)
 JobEntity.create(job_id: j3.id, entity_id: vinz.id)
 
 puts "Complete\n "
+
+# puts "Creating reviews..."
+
+# puts "Complete\n "
 
 puts "Seeding complete"
