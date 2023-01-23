@@ -71,6 +71,7 @@ const UserForm = ({onSubmit, user}) => {
                     />
                 </Form.Field>
 
+                {user ? null :
                 <Form.Field required>
                     <label>Confirm Password</label>
                     <input
@@ -78,8 +79,9 @@ const UserForm = ({onSubmit, user}) => {
                         name='password_confirmation'
                         value={formData.password_confirmation}
                         onChange={handleInput}
-                    />
+                        />
                 </Form.Field>
+                }
 
                 <Form.Field>
                     <label>Phone Number (Optional)</label>
