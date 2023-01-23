@@ -3,7 +3,7 @@ puts "Deleting previous records..."
 User.destroy_all
 Entity.destroy_all
 Job.destroy_all
-# Review.destroy_all
+Review.destroy_all
 
 puts "Complete\n "
 
@@ -186,8 +186,32 @@ JobEntity.create(job_id: j3.id, entity_id: vinz.id)
 
 puts "Complete\n "
 
-# puts "Creating reviews..."
+puts "Creating reviews..."
 
-# puts "Complete\n "
+Review.create(
+    user_id: mike.id,
+    rating: 0,
+    content: "Although these gentlemen admittedly did remove the offending apparition, their demeanor was absolutely atrocious, their fees were beyond outrageous, and they caused no small amount of disruption and propety damage. They were entirely lacking in discretion, and I seriously question whether removing the ghost in question was worth involving these men. I wish only that I could give them a negative rating."
+)
+
+Review.create(
+    user_id: dana.id,
+    rating: 2,
+    content: "I am still waiting to hear back about whether my kitchen is haunted. Also, Dr. Venkman was completely unprofessional."
+)
+
+Review.create(
+    user_id: sally.id,
+    rating: 5,
+    content: "These boys did such a great job and that Dr. Spengler is so lovely."
+)
+
+Review.create(
+    user_id: bob.id,
+    rating: 3,
+    content: "They got rid of the ghost but Venkman hit on my mom."
+)
+
+puts "Complete\n "
 
 puts "Seeding complete"
