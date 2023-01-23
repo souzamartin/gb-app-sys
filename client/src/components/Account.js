@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 import Login from './Login'
 import UserForm from './UserForm'
 
-import {Header, Segment, Button, Icon, List, Divider, Modal, Message} from 'semantic-ui-react'
+import {Header, Segment, Button, Icon, List, Divider, Modal, Message, Accordion} from 'semantic-ui-react'
 
 const Account = ({user, setUser}) => {
     const history = useHistory()
@@ -12,6 +12,8 @@ const Account = ({user, setUser}) => {
     const [errors, setErrors] = useState(null)
 
     const [open, setOpen] = useState(false)
+
+    const [activeIndex, setActiveIndex] = useState(-1)
 
     const onSignup = (formData) => {
         fetch('/users', {
@@ -55,7 +57,11 @@ const Account = ({user, setUser}) => {
             }
           })
         }
-      }
+    }
+
+    const handleClick = (e) => {
+        console.log(e.target)
+    }
 
     return (
         <>
@@ -140,13 +146,36 @@ const Account = ({user, setUser}) => {
             :
                 <>
                     <Header size='medium'>Please log in or create an account</Header>
-                    <Login setUser={setUser} />
-                    {errors ?
-                        <Message negative>
-                            {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
-                        </Message>
-                    : null}
-                    <UserForm onSubmit={onSignup} />
+                    <Accordion exclusive={false}>
+                        <Accordion.Title
+                            index={0}
+                            active={activeIndex === 0}
+                            onClick={() => setActiveIndex(0)}
+                        >
+                            <Icon name='dropdown'/>
+                            Returning Customers
+                        </Accordion.Title>
+                        <Accordion.Content active={activeIndex === 0}>
+                            <Login setUser={setUser} />
+                        </Accordion.Content>
+
+                        <Accordion.Title
+                            index={1}
+                            active={activeIndex === 1}
+                            onClick={() => setActiveIndex(1)}
+                        >
+                            <Icon name='dropdown'/>
+                            New Customers
+                        </Accordion.Title>
+                        <Accordion.Content active={activeIndex === 1}>
+                            {errors ?
+                                <Message negative>
+                                    {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
+                                </Message>
+                            : null}
+                            <UserForm onSubmit={onSignup} />
+                        </Accordion.Content>
+                    </Accordion>
                 </>
             }
         </>
