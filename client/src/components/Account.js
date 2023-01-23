@@ -59,8 +59,12 @@ const Account = ({user, setUser}) => {
         }
     }
 
-    const handleClick = (e) => {
-        console.log(e.target)
+    const handleClick = (index) => {
+        if (activeIndex === index) {
+            setActiveIndex(-1)
+        } else {
+            setActiveIndex(index)
+        }
     }
 
     return (
@@ -68,7 +72,6 @@ const Account = ({user, setUser}) => {
             {user ?
                 <>
                     <Header size='medium'>Account Details</Header>
-
                     <Segment>
                         <List size='large'>
                             <List.Item>
@@ -144,13 +147,13 @@ const Account = ({user, setUser}) => {
                     </div>
                 </>
             :
-                <>
+                <Segment>
                     <Header size='medium'>Please log in or create an account</Header>
                     <Accordion exclusive={false}>
                         <Accordion.Title
                             index={0}
                             active={activeIndex === 0}
-                            onClick={() => setActiveIndex(0)}
+                            onClick={() => handleClick(0)}
                         >
                             <Icon name='dropdown'/>
                             Returning Customers
@@ -162,7 +165,7 @@ const Account = ({user, setUser}) => {
                         <Accordion.Title
                             index={1}
                             active={activeIndex === 1}
-                            onClick={() => setActiveIndex(1)}
+                            onClick={() => handleClick(1)}
                         >
                             <Icon name='dropdown'/>
                             New Customers
@@ -176,7 +179,7 @@ const Account = ({user, setUser}) => {
                             <UserForm onSubmit={onSignup} />
                         </Accordion.Content>
                     </Accordion>
-                </>
+                </Segment>
             }
         </>
     )
