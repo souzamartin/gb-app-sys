@@ -55,7 +55,7 @@ function App() {
           </Route>
 
           <Route path='/testimonials'>
-            <Testimonials />
+            <Testimonials user={user} />
           </Route>
 
           <Route exact path='/'>
