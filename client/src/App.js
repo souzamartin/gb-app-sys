@@ -8,6 +8,7 @@ import Account from './components/Account'
 import Entities from './components/Entities'
 import Services from './components/Services'
 import NewJob from './components/NewJob'
+import Testimonials from './components/Testimonials'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -51,6 +52,10 @@ function App() {
 
           <Route path='/newjob'>
             <NewJob entities={entities} />
+          </Route>
+
+          <Route path='/testimonials'>
+            <Testimonials />
           </Route>
 
           <Route exact path='/'>
