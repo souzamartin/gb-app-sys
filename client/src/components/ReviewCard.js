@@ -12,7 +12,7 @@ const ReviewCard = ({review, user, handleDelete}) => {
             <Card.Content>
                 {review.content}
             </Card.Content>
-            {review.user.id === user.id ?
+            {review.user.id === user.id || user.admin === true ?
                 <Card.Content extra>
                     <div align='center'>
                         <Button animated onClick={() => handleDelete(review.id)}>
