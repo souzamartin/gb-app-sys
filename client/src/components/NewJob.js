@@ -98,7 +98,7 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
                     <Label.Group size='large'>
                         {associatedEntities.map(entity => 
                         <Label key={entity.id}>
-                            <img className='ghost-avatar' src={entity.image} alt={entity.name} />
+                            <img className='ghost-avatar' src={entity.image} alt={entity.name}/>
                             {entity.name.toUpperCase()}
                         </Label>)}
                     </Label.Group>
@@ -108,7 +108,7 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
 
                 {selectError ? <Message warning>{selectError}</Message> : null}
                 
-                <SelectEntity entities={entities} onSelectEntity={onSelectEntity} />
+                <SelectEntity entities={entities} onSelectEntity={onSelectEntity}/>
 
                 <Button animated onClick={handleClear}>
                         <Button.Content visible>Clear Entities</Button.Content>
@@ -117,7 +117,7 @@ const NewJob = ({entities, job, setOpenEdit, onUpdate}) => {
                         </Button.Content>
                 </Button>
 
-                <Divider />
+                <Divider/>
 
                 {errors ?
                     <Message negative>

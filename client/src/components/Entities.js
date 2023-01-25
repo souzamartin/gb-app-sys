@@ -15,8 +15,8 @@ const Entities = ({user, entities, setEntities}) => {
             <p>Search our catalog of spooks, specters, and ghosts. 
                 If there's something strange in your neighborhood,
                 but it isn't listed below, please report it to us.</p>
-            <ReportEntity user={user} entities={entities} setEntities={setEntities} />
-            <GhostGallery entities={entities} handleClick={handleClick} />
+            <ReportEntity user={user} entities={entities} setEntities={setEntities}/>
+            <GhostGallery entities={entities} handleClick={handleClick}/>
         </Segment>
     )
 }

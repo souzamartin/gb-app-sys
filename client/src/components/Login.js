@@ -65,17 +65,18 @@ const Login = ({setUser}) => {
                             value={login.password}
                             placeholder='Enter password'
                             onChange={handleInput}    
-                            />
+                        />
 
                     </Form.Field>
-                        <div align='center'>
-                            <Button primary animated type='submit'>
-                                <Button.Content visible>Log In</Button.Content>
-                                <Button.Content hidden>
-                                    <Icon name='sign-in'/>
-                                </Button.Content>
-                            </Button>
-                        </div>
+                    
+                    <div align='center'>
+                        <Button primary animated type='submit'>
+                            <Button.Content visible>Log In</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='sign-in'/>
+                            </Button.Content>
+                        </Button>
+                    </div>
                 </Form>
             </Segment>
         </>

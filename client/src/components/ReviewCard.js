@@ -12,17 +12,19 @@ const ReviewCard = ({review, user, handleDelete}) => {
             <Card.Content>
                 {review.content}
             </Card.Content>
-            {review.user.id === user.id || user.admin === true ?
-                <Card.Content extra>
-                    <div align='center'>
-                        <Button animated onClick={() => handleDelete(review.id)}>
-                            <Button.Content visible>Delete Review</Button.Content>
-                            <Button.Content hidden>
-                                <Icon name='x'/>
-                            </Button.Content>
-                        </Button>
-                    </div>
-                </Card.Content>
+            {user ?
+                review.user.id === user.id || user.admin === true ?
+                    <Card.Content extra>
+                        <div align='center'>
+                            <Button animated onClick={() => handleDelete(review.id)}>
+                                <Button.Content visible>Delete Review</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='x'/>
+                                </Button.Content>
+                            </Button>
+                        </div>
+                    </Card.Content>
+                : null
             : null}
         </Card>
     )

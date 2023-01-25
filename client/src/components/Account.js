@@ -73,7 +73,7 @@ const Account = ({user, setUser}) => {
                     <Header size='medium'>Account Details</Header>
                     <List size='large'>
                         <List.Item>
-                            <Icon name='user' />
+                            <Icon name='user'/>
                             <List.Content>
                                 <List.Header>Name</List.Header>
                                 {`${user.firstname} ${user.lastname}`}
@@ -81,7 +81,7 @@ const Account = ({user, setUser}) => {
                         </List.Item>
 
                         <List.Item>
-                            <Icon name='mail' />
+                            <Icon name='mail'/>
                             <List.Content>
                                 <List.Header>E-Mail Address</List.Header>
                                 {user.email}
@@ -89,7 +89,7 @@ const Account = ({user, setUser}) => {
                         </List.Item>
 
                         <List.Item>
-                            <Icon name='phone' />
+                            <Icon name='phone'/>
                             <List.Content>
                                 <List.Header>Telephone</List.Header>
                                 {user.phone}
@@ -97,7 +97,7 @@ const Account = ({user, setUser}) => {
                         </List.Item>
                         
                         <List.Item>
-                            <Icon name='home' />
+                            <Icon name='home'/>
                             <List.Content>
                                 <List.Header>Address</List.Header>
                                 {user.address}
@@ -113,7 +113,7 @@ const Account = ({user, setUser}) => {
                                 <Button animated onClick={() => setOpenEdit(true)}>
                                     <Button.Content visible>Edit Account</Button.Content>
                                     <Button.Content hidden>
-                                        <Icon name='edit' />
+                                        <Icon name='edit'/>
                                     </Button.Content>
                                 </Button>
                             </div>
@@ -128,11 +128,11 @@ const Account = ({user, setUser}) => {
                                 {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
                             </Message>
                             : null}
-                            <UserForm user={user} onSubmit={handleEdit} />
+                            <UserForm user={user} onSubmit={handleEdit}/>
                         </Modal.Content>
                     </Modal>
 
-                    <Divider />
+                    <Divider/>
 
                     <Modal
                         closeIcon
@@ -183,7 +183,7 @@ const Account = ({user, setUser}) => {
                             Returning Customers
                         </Accordion.Title>
                         <Accordion.Content active={activeIndex === 0}>
-                            <Login setUser={setUser} />
+                            <Login setUser={setUser}/>
                         </Accordion.Content>
 
                         <Accordion.Title
@@ -200,7 +200,7 @@ const Account = ({user, setUser}) => {
                                     {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
                                 </Message>
                             : null}
-                            <UserForm onSubmit={onSignup} />
+                            <UserForm onSubmit={onSignup}/>
                         </Accordion.Content>
                     </Accordion>
                 </Segment>

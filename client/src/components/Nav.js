@@ -30,7 +30,7 @@ const Nav = ({user, setUser}) => {
                 />
 
                 <Menu.Item className='to-right'>
-                   <Logout user={user} setUser={setUser} />
+                   <Logout user={user} setUser={setUser}/>
                 </Menu.Item>
             </Menu>
         </div>

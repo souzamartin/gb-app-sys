@@ -82,7 +82,7 @@ const Testimonials = ({user}) => {
                                 {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
                             </Message>
                         : null}
-                        <ReviewForm user={user} submitReview={submitReview} />
+                        <ReviewForm user={user} submitReview={submitReview}/>
                     </Modal.Content>
                 </Modal>
             : null}

@@ -5,7 +5,7 @@ const Home = ({user}) => {
         <Segment>
             <Header size='large'>Welcome{user ? `, ${user.firstname} ${user.lastname}` : null}</Header>
             <Header size='huge' color='red'>We're ready to believe you!</Header>
-            <Divider />
+            <Divider/>
             <Label ribbon color='blue' size='large'>As Seen on TV!</Label>
             <Embed
                 placeholder='https://img.youtube.com/vi/sRee26pfVzU/maxresdefault.jpg'

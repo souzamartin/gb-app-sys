@@ -72,8 +72,7 @@ const Services = ({user, entities}) => {
                 </div>
             : null}
             
-
-            <Divider />
+            <Divider/>
 
             {user ?
                 <Card.Group itemsPerRow={2}>

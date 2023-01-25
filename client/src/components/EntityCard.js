@@ -7,7 +7,7 @@ const EntityCard = ({entity, handleClick}) => {
 
     return (
         <Card>
-            <Image className='ghost-pic' src={entity.image} alt={entity.name} />
+            <Image className='ghost-pic' src={entity.image} alt={entity.name}/>
             <Card.Content>
                 <Header>{entity.name.toUpperCase()}</Header>
                 
@@ -25,7 +25,7 @@ const EntityCard = ({entity, handleClick}) => {
                     // <Button color='red' animated onClick={() => handleClick(entity)}>
                     //     <Button.Content visible>Schedule Job</Button.Content>
                     //     <Button.Content hidden>
-                    //         <Icon name='ban' />
+                    //         <Icon name='ban'/>
                     //     </Button.Content>
                     // </Button>
             : 
@@ -33,7 +33,7 @@ const EntityCard = ({entity, handleClick}) => {
                     <Button color='violet' animated onClick={() => handleClick(entity)}>
                         <Button.Content visible>Select Entity</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='check' />
+                            <Icon name='check'/>
                         </Button.Content>
                     </Button>
                 </Card.Content>

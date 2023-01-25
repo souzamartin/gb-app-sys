@@ -7,12 +7,8 @@ import {Container, Header, Image} from 'semantic-ui-react'
 const Title = () => {
     const history = useHistory()
 
-    const goHome = () => {
-        history.push('/')
-    }
-
     return (
-        <Container id='title' onClick={goHome}>
+        <Container id='title' onClick={() => history.push('/')}>
             <Image size='small' verticalAlign='middle' src={gb}/>
             <Container>
                 <Header id='title-header'>GHOSTBUSTERS™</Header>

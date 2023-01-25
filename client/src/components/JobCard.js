@@ -42,7 +42,7 @@ const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
                 <Label.Group size='large'>
                     {job.entities.map(entity => 
                         <Label key={entity.id}>
-                            <img className='ghost-avatar' src={entity.image} alt={entity.name} />
+                            <img className='ghost-avatar' src={entity.image} alt={entity.name}/>
                             {entity.name.toUpperCase()}
                         </Label>)}
                 </Label.Group>
@@ -57,7 +57,7 @@ const JobCard = ({job, user, entities, onUpdate, onDelete}) => {
                             <Button color='yellow' animated onClick={() => setOpenEdit(true)}>
                                 <Button.Content visible>Edit Request</Button.Content>
                                 <Button.Content hidden>
-                                    <Icon name='edit' />
+                                    <Icon name='edit'/>
                                 </Button.Content>
                             </Button>
                         }

@@ -21,7 +21,7 @@ const GhostGallery = ({entities, handleClick}) => {
 
     return (
         <>
-            <Divider />
+            <Divider/>
 
             <Input
                 fluid
@@ -31,7 +31,7 @@ const GhostGallery = ({entities, handleClick}) => {
                 onChange={(e) => setSearchText(e.target.value)}
                 />
 
-            <Divider />
+            <Divider/>
 
             <Card.Group itemsPerRow={2}>
                 {renderedEntities}
