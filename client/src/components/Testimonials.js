@@ -58,6 +58,7 @@ const Testimonials = ({user}) => {
     return (
         <Segment>
             <Header>Customer Testimonials</Header>
+            <p>See what our customers have to say!</p>
             {user ?
                 <Modal
                     closeIcon

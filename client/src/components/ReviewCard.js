@@ -1,6 +1,8 @@
-import {Card, Header, Rating, Button, Icon} from "semantic-ui-react"
+import {Card, Header, Rating, Button, Icon, Label} from "semantic-ui-react"
 
 const ReviewCard = ({review, user, handleDelete}) => {
+    const timestamp = new Date(review.created_at)
+
     return (
         <Card>
             <Card.Content>
@@ -11,6 +13,9 @@ const ReviewCard = ({review, user, handleDelete}) => {
             </Card.Content>
             <Card.Content>
                 {review.content}
+                <Label attached='top right'>
+                    {timestamp.toLocaleString()}
+                </Label>
             </Card.Content>
             {user ?
                 review.user.id === user.id || user.admin === true ?

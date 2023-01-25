@@ -6,7 +6,8 @@ Flatiron School
 
 ## ABOUT
 Technologies:
-• Rails API with Active Record, Active Model Serializers, and SQLite relational database
+• SQLite relational database
+• Rails API with Active Record and Active Model Serializers
 • Active Storage for image uploads
 • User auth with BCrypt
 • React client styled with Semantic UI
