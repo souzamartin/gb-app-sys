@@ -24,6 +24,11 @@ const Nav = ({user, setUser}) => {
                     name='Services'
                 />
 
+                <Menu.Item
+                    as={NavLink} to='/testimonials'
+                    name='Testimonials'
+                />
+
                 <Menu.Item className='to-right'>
                    <Logout user={user} setUser={setUser} />
                 </Menu.Item>
