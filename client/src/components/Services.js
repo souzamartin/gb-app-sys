@@ -51,7 +51,8 @@ const Services = ({user, entities}) => {
     return (
         <Segment>
             <Header>Your Service Requests</Header>
-
+            <p>Our courteous and efficient staff is on call 24 hours a 
+                day to serve all your supernatural elimination needs.</p>
             {user ?
                 <div align='center'>
                     <Button positive animated as={Link} to='/newjob'>
