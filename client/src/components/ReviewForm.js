@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 import {Form, Rating, TextArea, Button, Icon} from 'semantic-ui-react'
 
-const ReviewForm = ({user}) => {
+const ReviewForm = ({user, submitReview}) => {
     const [formData, setFormData] = useState({
         user_id: user.id,
         rating: 0,
@@ -25,8 +25,7 @@ const ReviewForm = ({user}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        console.log(formData)
+        submitReview(formData)
     }
 
     return (
@@ -40,7 +39,7 @@ const ReviewForm = ({user}) => {
                     maxRating={5}
                     rating={formData.rating}
                     onRate={handleRating}
-                />
+                    />
             </Form.Field>
 
             <Form.Field required>
@@ -50,7 +49,7 @@ const ReviewForm = ({user}) => {
                     placeholder='Describe your experience with our service'
                     value={formData.content}
                     onChange={handleInput}
-                />
+                    />
             </Form.Field>
 
             <div align='center'>

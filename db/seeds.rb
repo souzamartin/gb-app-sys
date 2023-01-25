@@ -191,7 +191,7 @@ puts "Creating reviews..."
 Review.create(
     user_id: mike.id,
     rating: 0,
-    content: "Although these gentlemen admittedly did remove the offending apparition, their demeanor was absolutely atrocious, their fees were beyond outrageous, and they caused no small amount of disruption and propety damage. They were entirely lacking in discretion, and I seriously question whether removing the ghost in question was worth involving these men. I wish only that I could give them a negative rating."
+    content: "Although these gentlemen admittedly did remove the offending apparition, their demeanor was absolutely atrocious, their fees were beyond outrageous, and they caused no small amount of disruption and propety damage. They were entirely lacking in discretion, and I seriously question whether removing the ghost was worth involving these men. I wish only that I could give them a negative rating."
 )
 
 Review.create(
@@ -203,13 +203,19 @@ Review.create(
 Review.create(
     user_id: sally.id,
     rating: 5,
-    content: "These boys did such a great job and that Dr. Spengler is so lovely."
+    content: "These boys did such a great job and that Dr. Spengler is adorable."
 )
 
 Review.create(
     user_id: bob.id,
     rating: 3,
     content: "They got rid of the ghost but Venkman hit on my mom."
+)
+
+Review.create(
+    user_id: jane.id,
+    rating: 5,
+    content: "Secretary was rude when I called, but Mr. Zeddemore can bust my ghosts any time."
 )
 
 puts "Complete\n "

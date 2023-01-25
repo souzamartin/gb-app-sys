@@ -3,10 +3,12 @@ import {useState, useEffect} from 'react'
 import ReviewForm from './ReviewForm'
 import ReviewCard from './ReviewCard'
 
-import {Segment, Header, Card, Divider, Modal, Button, Icon} from 'semantic-ui-react'
+import {Segment, Header, Card, Divider, Modal, Button, Icon, Message} from 'semantic-ui-react'
 
 const Testimonials = ({user}) => {
     const [reviews, setReviews] = useState([])
+
+    const [errors, setErrors] = useState(null)
 
     const [open, setOpen] = useState(false)
 
@@ -15,6 +17,22 @@ const Testimonials = ({user}) => {
         .then(r => r.json())
         .then(setReviews)
     }, [])
+
+    const submitReview = (reviewData) => {
+        fetch('/reviews', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(reviewData)
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json().then(newReview => setReviews([...reviews, newReview]))
+                setOpen(false)
+            } else {
+                r.json().then(setErrors)
+            }
+        })
+    }
 
     const renderedReviews = reviews.map(review => <ReviewCard review={review} />)
 
@@ -38,9 +56,14 @@ const Testimonials = ({user}) => {
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
                     >
-                    <Header content='Edit Account Information'/>
+                    <Header content='Write a Review'/>
                     <Modal.Content>
-                        <ReviewForm user={user} />
+                        {errors ?
+                            <Message negative>
+                                {errors.errors.map((error, index) => <li key={index}>{error}</li>)}
+                            </Message>
+                        : null}
+                        <ReviewForm user={user} submitReview={submitReview} />
                     </Modal.Content>
                 </Modal>
             : null}
