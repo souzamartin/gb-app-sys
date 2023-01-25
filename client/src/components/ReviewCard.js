@@ -1,6 +1,6 @@
-import {Card, Header, Rating} from "semantic-ui-react"
+import {Card, Header, Rating, Button, Icon} from "semantic-ui-react"
 
-const ReviewCard = ({review}) => {
+const ReviewCard = ({review, user, handleDelete}) => {
     return (
         <Card>
             <Card.Content>
@@ -12,6 +12,18 @@ const ReviewCard = ({review}) => {
             <Card.Content>
                 {review.content}
             </Card.Content>
+            {review.user.id === user.id ?
+                <Card.Content extra>
+                    <div align='center'>
+                        <Button animated onClick={() => handleDelete(review.id)}>
+                            <Button.Content visible>Delete Review</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='x'/>
+                            </Button.Content>
+                        </Button>
+                    </div>
+                </Card.Content>
+            : null}
         </Card>
     )
 }

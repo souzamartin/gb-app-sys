@@ -10,6 +10,11 @@ class ReviewsController < ApplicationController
         render json: new_review, status: :created
     end
 
+    def destroy
+        Review.find(params[:id]).destroy
+        head :no_content
+    end
+
     private
     def review_params
         params.permit(:user_id, :rating, :content)

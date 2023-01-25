@@ -34,7 +34,26 @@ const Testimonials = ({user}) => {
         })
     }
 
-    const renderedReviews = reviews.map(review => <ReviewCard review={review} />)
+    const handleDelete = (id) => {
+        fetch(`/reviews/${id}`, {method: 'DELETE'})
+        .then(r => {
+            if (r.ok) {
+                const updatedReviews = reviews.filter(review => review.id !== id)
+                setReviews(updatedReviews)
+            } else {
+                r.json().then(console.error)
+            }
+        })
+    }
+
+    const renderedReviews = reviews.map(review =>
+        <ReviewCard
+            key={review.id}
+            review={review}
+            user={user}
+            handleDelete={handleDelete}
+        />
+    )
 
     return (
         <Segment>
