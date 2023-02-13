@@ -20,6 +20,20 @@ Additionally, admin users can:
 • View, update, and cancel service requests from any user  
 • Delete reviews from any user
 
+### Login credentials
+The following user accounts will be created by the seedfile:
+|User          |E-Mail                             |Password    |
+|--------------|-----------------------------------|------------|
+|*Admin Users*                                                  |
+|Egon Spengler |espengler@parapsych.columbia.edu   |bigtwinkie  |
+|Ray Stantz    |ray@rays-occult.biz                |staypuft    |
+|*Customer Users*                                               |
+|Dana Barrett  |dana@fakeaol.com                   |orchestra   |
+|Michael Ensign|manager@sedgewick-hotel.com        |ballroom    |
+|Bob Josephson |jo-bob@fakemail.com                |password    |
+|Jane Doe      |janedoe@fakemail.com               |password    |
+|Sally Sanchez |sally4th@fakemail.com              |password    |
+
 ### Technologies:  
 • SQLite relational database  
 • Rails API with Active Record and Active Model Serializers  
