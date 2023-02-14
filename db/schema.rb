@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_23_211328) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,8 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_211328) do
   end
 
   create_table "job_entities", force: :cascade do |t|
-    t.integer "job_id", null: false
-    t.integer "entity_id", null: false
+    t.bigint "job_id", null: false
+    t.bigint "entity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entity_id"], name: "index_job_entities_on_entity_id"
@@ -59,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_211328) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "location"
     t.string "notes", default: "None"
     t.boolean "active", default: true
@@ -69,7 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_211328) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.integer "rating"
     t.text "content"
     t.datetime "created_at", null: false
