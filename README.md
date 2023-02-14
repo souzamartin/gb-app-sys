@@ -35,7 +35,7 @@ The following user accounts will be created by the seedfile:
 |Sally Sanchez |sally4th@fakemail.com              |password    |
 
 ### Technologies:  
-• SQLite relational database  
+• PostgreSQL relational database  
 • Rails API with Active Record and Active Model Serializers  
 • Active Storage for image uploads  
 • User auth with BCrypt  
